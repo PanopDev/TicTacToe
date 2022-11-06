@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: rgb(57, 56, 56);
+  background-color: rgb(217, 223, 28);
 }
 
 .App {
@@ -245,11 +245,11 @@ h1 {
 }
 
 .popupMenu {
-  display: flex;
+  /* transition: 1s; */
   /* flex-direction: column; */
+  display: flex;
   flex-wrap: wrap;
   color: rgba(255, 255, 255, 0);
-  /* transition: 1s; */
   width: clamp(300px, 100%, 500px);
   left: 0px;
   z-index: 1;

@@ -2,12 +2,13 @@
 import GameBoard from './gameBoard';
 import { useState, useRef } from 'react';
 import Header from './header';
+import { gameSettings } from './Context';
 
 function Game() {
   const [difficulty, setDifficulty] = useState('Easy');
   const [playerGamePiece, setPlayerGamePiece] = useState('gamepieceX');
   const [aiGamePiece, setAiGamePiece] = useState('gamepieceO');
-  const [userGoesFirst,setUserGoesFirst] = useState(false)
+  const [userGoesFirst, setUserGoesFirst] = useState(false);
   const gameStats = useRef({
     Won: 0,
     Lost: 0,
@@ -57,27 +58,24 @@ function Game() {
   const game = gameStats.current;
 
   return (
-    
-      <div className="game">
-        <Header
-          gameStats={gameStats}
-          setDifficulty={setDifficulty}
-          difficulty={difficulty}
-          playerGamePiece={playerGamePiece}
-          setPlayerGamePiece={setPlayerGamePiece}
-          aiGamePiece={aiGamePiece}
-          setAiGamePiece={setAiGamePiece}
-        />
-        <GameBoard
-          gameStats={gameStats}
-          difficulty={difficulty}
-          playerGamePiece={playerGamePiece}
-          aiGamePiece={aiGamePiece}
-          userGoesFirst={userGoesFirst}
-          setUserGoesFirst={setUserGoesFirst}
-        />
+    <gameSettings.Provider
+      value={{
+        gameStats,
+        setDifficulty,
+        difficulty,
+        playerGamePiece,
+        setPlayerGamePiece,
+        aiGamePiece,
+        setAiGamePiece,
+        userGoesFirst,
+        setUserGoesFirst,
+      }}
+    >
+      <div className='game'>
+        <Header/>
+        <GameBoard/>
       </div>
-    
+    </gameSettings.Provider>
   );
 }
 

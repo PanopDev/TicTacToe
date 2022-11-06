@@ -4,18 +4,21 @@ import { useState } from 'react';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
-
+import { gameSettings} from '../Context';
+import { useContext } from 'react';
 export default function PopupMenu({
   isOpen,
   setIsOpen,
-  difficulty,
-  setDifficulty,
-  gameStats,
-  aiGamePiece,
-  setAiGamePiece,
-  playerGamePiece,
-  setPlayerGamePiece,
+  
 }) {
+  const {difficulty,
+    setDifficulty,
+    gameStats,
+    aiGamePiece,
+    setAiGamePiece,
+    playerGamePiece,
+    setPlayerGamePiece,} = useContext(gameSettings)
+
   const game = gameStats.current;
 
   return (

@@ -1,21 +1,24 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import GameSquare from './components/gameSquare';
 import callAI from './aiLogic';
 import restartGame from './restartGame';
 import Statistics from './components/statistics';
 import Result from './components/result';
+import { gameSettings } from './Context';
 
-export default function GameBoard({
-  difficulty,
-  gameStats,
-  playerGamePiece,
-  aiGamePiece,
-  setPlayerGamePiece,
-  setAiGamePiece,
-  userGoesFirst,
-  setUserGoesFirst,
-}) {
+export default function GameBoard() {
+  const {
+    difficulty,
+    gameStats,
+    playerGamePiece,
+    aiGamePiece,
+    setPlayerGamePiece,
+    setAiGamePiece,
+    userGoesFirst,
+    setUserGoesFirst,
+  } = useContext(gameSettings);
+  
   const [gameSquaresFilled, setGameSquareFilled] = useState([]);
   const [userSelected, setUserSelected] = useState([]);
   const [aiSelected, setAiSelected] = useState([]);

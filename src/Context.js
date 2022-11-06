@@ -1,3 +1,7 @@
 import { createContext } from "react";
 
-export const gameSettings = createContext({})
+const gameSet = createContext({})
+
+const gameBrain= createContext({})
+
+export {gameSet, gameBrain}

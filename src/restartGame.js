@@ -1,17 +1,18 @@
 import callAI from "./aiLogic";
 
 export default function restartGame(
+  state,
+  dispatch,
   gameStats,
   setGameSquareFilled,
   setUserSelected,
   setAiSelected,
-  userGoesFirst,
-  setUserGoesFirst
+
   
 ) {
   let game = gameStats.current;
     
-  
+  console.log('the state', state)
   
   game.remainingSquares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   game.win = false;
@@ -42,6 +43,6 @@ export default function restartGame(
   setGameSquareFilled([]);
   setUserSelected([]);
   setAiSelected([]);
-  setUserGoesFirst(!userGoesFirst)
+  dispatch({type:'userGoesFirst', payload:!state.userGoesFirst})
   
 }

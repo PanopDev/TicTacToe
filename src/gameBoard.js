@@ -5,19 +5,15 @@ import callAI from './aiLogic';
 import restartGame from './restartGame';
 import Statistics from './components/statistics';
 import Result from './components/result';
-import { gameSettings } from './Context';
+import { gameBrain, gameSet } from './Context';
 
 export default function GameBoard() {
+const {state} = useContext(gameBrain)
+
   const {
-    difficulty,
-    gameStats,
-    playerGamePiece,
-    aiGamePiece,
-    setPlayerGamePiece,
-    setAiGamePiece,
-    userGoesFirst,
-    setUserGoesFirst,
-  } = useContext(gameSettings);
+  
+    gameStats
+  } = useContext(gameSet);
   
   const [gameSquaresFilled, setGameSquareFilled] = useState([]);
   const [userSelected, setUserSelected] = useState([]);
@@ -44,10 +40,10 @@ export default function GameBoard() {
   }
 
   function whoGoesFirst() {
-    if (userGoesFirst) {
+    if (state.userGoesFirst) {
       game.userTurn = true;
       updateState((cur) => cur + 1);
-    } else if (!userGoesFirst) {
+    } else if (!state.userGoesFirst) {
       game.userTurn = false;
       updateState((cur) => cur + 1);
       setTimeout(() => {
@@ -58,7 +54,7 @@ export default function GameBoard() {
           checkForWin,
           checkForDraw,
           handleGameStats,
-          difficulty
+          state.difficulty
         );
       }, 500);
     }
@@ -84,7 +80,7 @@ export default function GameBoard() {
           checkForWin,
           checkForDraw,
           handleGameStats,
-          difficulty
+          state.difficulty
         );
     if (game.win || game.lose || game.draw) {
       game.gameOver = true;
@@ -120,10 +116,7 @@ export default function GameBoard() {
           handleUserSelection={handleUserSelection}
           gameStats={gameStats}
           setGameSquareFilled={setGameSquareFilled}
-          aiGamePiece={aiGamePiece}
-          playerGamePiece={playerGamePiece}
-          setAiGamePiece={setAiGamePiece}
-          setPlayerGamePiece={setPlayerGamePiece}
+        
         />
       );
     }
@@ -132,7 +125,7 @@ export default function GameBoard() {
 
   useEffect(() => {
     whoGoesFirst();
-  }, [userGoesFirst]);
+  }, [state.userGoesFirst]);
 
   const elGameBoard = useRef();
 

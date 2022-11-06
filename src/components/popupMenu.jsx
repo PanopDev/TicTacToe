@@ -4,22 +4,26 @@ import { useState } from 'react';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
-import { gameSettings} from '../Context';
+// import { gameSet} from '../Context';
 import { useContext } from 'react';
+import { gameBrain } from '../Context';
+
 export default function PopupMenu({
   isOpen,
   setIsOpen,
   
 }) {
-  const {difficulty,
-    setDifficulty,
-    gameStats,
-    aiGamePiece,
-    setAiGamePiece,
-    playerGamePiece,
-    setPlayerGamePiece,} = useContext(gameSettings)
+  // const {difficulty,
+  //   setDifficulty,
+  //   gameStats,
+  //   aiGamePiece,
+  //   setAiGamePiece,
+  //   playerGamePiece,
+  //   setPlayerGamePiece,} = useContext(gameSet)
 
-  const game = gameStats.current;
+const {reduce,gameSettings,state,dispatch}= useContext(gameBrain)
+
+  // const game = gameStats.current;
 
   return (
     <>
@@ -42,18 +46,15 @@ export default function PopupMenu({
               settings={
                 <>
                   <PopMenuButton
-                    setDifficulty={setDifficulty}
-                    difficulty={difficulty}
+                  
                     text={'Easy'}
                   />
                   <PopMenuButton
-                    setDifficulty={setDifficulty}
-                    difficulty={difficulty}
+                   
                     text={'Medium'}
                   />
                   <PopMenuButton
-                    setDifficulty={setDifficulty}
-                    difficulty={difficulty}
+                    
                     text={'Hard'}
                   />
                 </>
@@ -66,11 +67,12 @@ export default function PopupMenu({
                 <>
                   <div
                     onClick={() => {
-                      setPlayerGamePiece('gamepieceX');
-                      setAiGamePiece('gamepieceO');
+                      dispatch({type:'playerGamePiece', payload:'gamepieceX'})
+                      dispatch({type:'aiGamePiece', payload:'gamepieceO'})
+                    
                     }}
                     style={
-                      playerGamePiece === 'gamepieceX'
+                      state.playerGamePiece === 'gamepieceX'
                         ? {
                             border: '2px solid white',
                           }
@@ -82,11 +84,12 @@ export default function PopupMenu({
 
                   <div
                     onClick={() => {
-                      setPlayerGamePiece('gamepieceO');
-                      setAiGamePiece('gamepieceX');
+                      dispatch({type:'playerGamePiece', payload:'gamepieceO'})
+                      dispatch({type:'aiGamePiece', payload:'gamepieceX'})
+                      
                     }}
                     style={
-                      playerGamePiece === 'gamepieceO'
+                      state.playerGamePiece === 'gamepieceO'
                         ? {
                             border: '2px solid white',
                           }

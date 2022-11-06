@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { gameSettings } from "../Context";
+import { gameSet } from "../Context";
+import { gameBrain } from "../Context";
 
 export default function Statistics({
   restartGame,
@@ -8,7 +9,8 @@ export default function Statistics({
   setAiSelected,
 }) {
 
-const {gameStats,userGoesFirst,setUserGoesFirst} = useContext(gameSettings)
+const {gameStats} = useContext(gameSet)
+const {state, dispatch} = useContext (gameBrain)
 const game = gameStats.current;
 
   return (
@@ -24,12 +26,13 @@ const game = gameStats.current;
             style={{ height: '50px'}}
             onClick={() => {
               restartGame(
+                state,
+                dispatch,
                 gameStats,
                 setGameSquareFilled,
                 setUserSelected,
                 setAiSelected,
-                userGoesFirst,
-                setUserGoesFirst
+                
 
               );
             }}

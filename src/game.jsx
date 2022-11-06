@@ -1,8 +1,9 @@
 // import './App.css';
 import GameBoard from './gameBoard';
-import { useState, useRef } from 'react';
+import { useState, useRef, useReducer } from 'react';
 import Header from './header';
-import { gameSettings } from './Context';
+import { gameBrain } from './Context';
+import { gameSet } from './Context';
 
 function Game() {
   const [difficulty, setDifficulty] = useState('Easy');
@@ -57,8 +58,33 @@ function Game() {
   });
   const game = gameStats.current;
 
+  const gameSettings = {
+    difficulty: 'Easy',
+    playerGamePiece: 'gamepieceX',
+    aiGamePiece: 'gamepieceO',
+    userGoesFirst: false,
+  };
+
+  function reduce(state, action) {
+    switch (action.type) {
+      case 'difficulty':
+        return { ...state, difficulty: action.payload };
+      case 'playerGamePiece':
+        return { ...state, playerGamePiece: action.payload };
+      case 'aiGamePiece':
+        return { ...state, aiGamePiece: action.payload };
+      case 'userGoesFirst':
+        return { ...state, userGoesFirst: !state.userGoesFirst };
+      default:
+       return state;
+    }
+  }
+
+  const [state, dispatch] = useReducer(reduce, gameSettings);
+  //dispatch({type:'description' payload:'value'})
   return (
-    <gameSettings.Provider
+    
+    <gameSet.Provider
       value={{
         gameStats,
         setDifficulty,
@@ -67,15 +93,18 @@ function Game() {
         setPlayerGamePiece,
         aiGamePiece,
         setAiGamePiece,
-        userGoesFirst,
-        setUserGoesFirst,
+        
+        
       }}
     >
+      <gameBrain.Provider value={{reduce,gameSettings,state,dispatch}}> 
       <div className='game'>
-        <Header/>
-        <GameBoard/>
+        <Header />
+        <GameBoard />
       </div>
-    </gameSettings.Provider>
+      </gameBrain.Provider>
+    </gameSet.Provider>
+    
   );
 }
 

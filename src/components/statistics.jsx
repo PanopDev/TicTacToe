@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { gameSet } from "../Context";
-import { gameBrain } from "../Context";
+import GameBrain from "../Context";
 
 export default function Statistics({
   restartGame,
@@ -10,7 +10,7 @@ export default function Statistics({
 }) {
 
 const {gameStats} = useContext(gameSet)
-const {state, dispatch} = useContext (gameBrain)
+const {state, dispatch} = useContext (GameBrain)
 const game = gameStats.current;
 
   return (

@@ -1,12 +1,11 @@
 import React from 'react';
 import PopMenuButton from './popMenuButton';
-import { useState } from 'react';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
 // import { gameSet} from '../Context';
 import { useContext } from 'react';
-import { gameBrain } from '../Context';
+import GameBrain from '../Context';
 
 export default function PopupMenu({
   isOpen,
@@ -21,7 +20,7 @@ export default function PopupMenu({
   //   playerGamePiece,
   //   setPlayerGamePiece,} = useContext(gameSet)
 
-const {reduce,gameSettings,state,dispatch}= useContext(gameBrain)
+const {reduce,gameSettings,state,dispatch}= useContext(GameBrain)
 
   // const game = gameStats.current;
 

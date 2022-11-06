@@ -5,10 +5,10 @@ import callAI from './aiLogic';
 import restartGame from './restartGame';
 import Statistics from './components/statistics';
 import Result from './components/result';
-import { gameBrain, gameSet } from './Context';
-
+import {gameSet } from './Context';
+import GameBrain from './Context';
 export default function GameBoard() {
-const {state} = useContext(gameBrain)
+const {state} = useContext(GameBrain)
 
   const {
   

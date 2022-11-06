@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState,useRef,useContext } from 'react';
-import { gameBrain } from '../Context';
+import {useContext } from 'react';
+import GameBrain from '../Context';
 export default function PopMenuButton({ text}) {
 
-  const{state,dispatch} = useContext(gameBrain)
+  const{state,dispatch} = useContext(GameBrain)
 
   
 

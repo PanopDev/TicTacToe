@@ -1,7 +1,49 @@
-import { createContext } from "react";
+import { createContext, useReducer } from 'react';
 
-const gameSet = createContext({})
+//create the context variable
+const gameSet = createContext({});
+const GameBrain = createContext({});
 
-const gameBrain= createContext({})
+//function that contains all the data
+function GameBrainData({ children }) {
+  //data to use
+  const gameSettings = {
+    difficulty: 'Easy',
+    playerGamePiece: 'gamepieceX',
+    aiGamePiece: 'gamepieceO',
+    userGoesFirst: false,
+  };
 
-export {gameSet, gameBrain}
+  function reduce(state, action) {
+    switch (action.type) {
+      case 'difficulty':
+        return { ...state, difficulty: action.payload };
+      case 'playerGamePiece':
+        return { ...state, playerGamePiece: action.payload };
+      case 'aiGamePiece':
+        return { ...state, aiGamePiece: action.payload };
+      case 'userGoesFirst':
+        return { ...state, userGoesFirst: !state.userGoesFirst };
+      default:
+        return state;
+    }
+  }
+
+  const [state, dispatch] = useReducer(reduce, gameSettings);
+
+  return (
+    <GameBrain.Provider
+      value={{
+        reduce,
+        gameSettings,
+        state,
+        dispatch,
+      }}
+    >
+      {children}
+    </GameBrain.Provider>
+  );
+}
+
+export default GameBrain;
+export { gameSet, GameBrainData };

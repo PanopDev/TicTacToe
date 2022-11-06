@@ -1,16 +1,11 @@
 import { useContext } from "react";
-import { gameSet } from "../Context";
 import GameBrain from "../Context";
 
 export default function Statistics({
-  restartGame,
-  setGameSquareFilled,
-  setUserSelected,
-  setAiSelected,
+  restartGame
 }) {
 
-const {gameStats} = useContext(gameSet)
-const {state, dispatch} = useContext (GameBrain)
+const {state,gameStats,dispatch} = useContext (GameBrain)
 const game = gameStats.current;
 
   return (
@@ -29,9 +24,7 @@ const game = gameStats.current;
                 state,
                 dispatch,
                 gameStats,
-                setGameSquareFilled,
-                setUserSelected,
-                setAiSelected,
+
                 
 
               );

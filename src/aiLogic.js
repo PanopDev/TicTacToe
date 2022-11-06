@@ -1,16 +1,15 @@
 export default function callAI(
+  state,
+  dispatch,
   gameStats,
-  setAiSelected,
-  setGameSquareFilled,
   checkForWin,
   checkForDraw,
   handleGameStats,
-  difficulty
 ) {
   const game = gameStats.current;
 
   function checkDifficulty() {
-    switch (difficulty) {
+    switch (state.difficulty) {
       case 'Easy': {
         
         return AiEasy();
@@ -30,7 +29,7 @@ export default function callAI(
   }
 
   function AiEasy() {
-    console.log('game difficulty', difficulty)
+    console.log('game difficulty', state.difficulty)
     let result = [];
     game.playerCanWin.forEach((x) => {
       if (x.length < 2) {
@@ -68,8 +67,10 @@ export default function callAI(
     //update ai squares selected
     game.aiCanWinUpdate = selection;
     //render states and set AI style class on selected square
-    setGameSquareFilled((current) => [...current, id]);
-    setAiSelected((current) => [...current, selection]);
+    // setGameSquareFilled((current) => [...current, id]);
+    dispatch({type:'gameSquaresFilled',payload:id})
+    // setAiSelected((current) => [...current, selection]);
+    dispatch({type:'aiSelected', payload:selection})
     checkForWin(game.aiCanWin)
       ? (game.lose = true)
       : checkForDraw()
@@ -78,7 +79,7 @@ export default function callAI(
       handleGameStats()
       if (game.win || game.lose || game.draw) {
         game.gameOver = true;
-        setGameSquareFilled([]);
+        // dispatch({type:'resetGameSquares'})
         console.log(game.gameOver);
       }
   }

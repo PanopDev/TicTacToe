@@ -4,9 +4,7 @@ export default function restartGame(
   state,
   dispatch,
   gameStats,
-  setGameSquareFilled,
-  setUserSelected,
-  setAiSelected,
+
 
   
 ) {
@@ -40,9 +38,8 @@ export default function restartGame(
     [1, 5, 9],
     [3, 5, 7],
   ];
-  setGameSquareFilled([]);
-  setUserSelected([]);
-  setAiSelected([]);
+
+  dispatch({type:'resetGameSquares'})
   dispatch({type:'userGoesFirst', payload:!state.userGoesFirst})
   
 }

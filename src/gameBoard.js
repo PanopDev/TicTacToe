@@ -1,25 +1,19 @@
-import React, { useCallback, useContext } from 'react';
-import { useState, useEffect, useMemo, useRef } from 'react';
+import React, {useContext } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import GameSquare from './components/gameSquare';
 import callAI from './aiLogic';
 import restartGame from './restartGame';
 import Statistics from './components/statistics';
 import Result from './components/result';
-import {gameSet } from './Context';
 import GameBrain from './Context';
-export default function GameBoard() {
-const {state} = useContext(GameBrain)
 
-  const {
-  
-    gameStats
-  } = useContext(gameSet);
-  
-  const [gameSquaresFilled, setGameSquareFilled] = useState([]);
-  const [userSelected, setUserSelected] = useState([]);
-  const [aiSelected, setAiSelected] = useState([]);
+
+
+export default function GameBoard() {
+
+  const {state,gameStats,dispatch} = useContext(GameBrain)
   const [clientStyle, setClientStyle] = useState({});
-  const [, updateState] = useState(0);
+  // const [, updateState] = useState(0);
   const game = gameStats.current;
 
   function checkForWin(canWinArray) {
@@ -42,19 +36,19 @@ const {state} = useContext(GameBrain)
   function whoGoesFirst() {
     if (state.userGoesFirst) {
       game.userTurn = true;
-      updateState((cur) => cur + 1);
+     dispatch({type:'updateState'})
     } else if (!state.userGoesFirst) {
       game.userTurn = false;
-      updateState((cur) => cur + 1);
+      dispatch({type:'updateState'})
       setTimeout(() => {
         callAI(
+          state,
+          dispatch,
           gameStats,
-          setAiSelected,
-          setGameSquareFilled,
           checkForWin,
           checkForDraw,
           handleGameStats,
-          state.difficulty
+          
         );
       }, 500);
     }
@@ -62,8 +56,11 @@ const {state} = useContext(GameBrain)
 
   function handleUserSelection(event, id, gameSquareNum) {
     game.userTurn = false;
-    setGameSquareFilled((current) => [...current, id]);
-    setUserSelected((current) => [...current, id]);
+    // setGameSquareFilled((current) => [...current, id]);
+    dispatch({type:'gameSquaresFilled',payload:id})
+    
+    // setUserSelected((current) => [...current, id]);
+    dispatch({type:'userSelected', payload: id})
     //update remaining squares
     game.selected = gameSquareNum;
     //update user can win status
@@ -74,17 +71,17 @@ const {state} = useContext(GameBrain)
       : checkForDraw()
       ? (game.draw = true)
       : callAI(
-          gameStats,
-          setAiSelected,
-          setGameSquareFilled,
+          state,
+          dispatch,
+          gameStats,        
           checkForWin,
           checkForDraw,
           handleGameStats,
-          state.difficulty
+          
         );
     if (game.win || game.lose || game.draw) {
       game.gameOver = true;
-      setGameSquareFilled([]);
+      // setGameSquareFilled([]);
       console.log(game.gameOver);
     }
     handleGameStats();
@@ -110,12 +107,12 @@ const {state} = useContext(GameBrain)
         <GameSquare
           id={`gameSquare${i}`}
           key={`gameSquare${i}`}
-          aiSelected={aiSelected}
-          gameSquaresFilled={gameSquaresFilled}
-          userSelected={userSelected}
+          // aiSelected={aiSelected}
+          // gameSquaresFilled={gameSquaresFilled}
+          // userSelected={userSelected}
           handleUserSelection={handleUserSelection}
           gameStats={gameStats}
-          setGameSquareFilled={setGameSquareFilled}
+          // setGameSquareFilled={setGameSquareFilled}
         
         />
       );
@@ -166,9 +163,6 @@ const {state} = useContext(GameBrain)
       </div>
       <Statistics
         restartGame={restartGame}
-        setGameSquareFilled={setGameSquareFilled}
-        setUserSelected={setUserSelected}
-        setAiSelected={setAiSelected}
       />
     </>
   );

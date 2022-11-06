@@ -6,21 +6,21 @@ import { useContext } from 'react';
 export default function GameSquare({
   handleUserSelection,
   id,
-  aiSelected,
-  gameSquaresFilled,
-  userSelected,
-  gameStats,
+  // aiSelected,
+  // gameSquaresFilled,
+  // userSelected,
+  // gameStats,
 }) {
 
-  const { state } = useContext(GameBrain);
+  const { state,dispatch,gameStats } = useContext(GameBrain);
   let game = gameStats.current;
   let innerO = false;
   let innerX = false;
   let handleClass = () => {
-    if (aiSelected.includes(Number(id.charAt(10)))) {
+    if (state.aiSelected.includes(Number(id.charAt(10)))) {
       state.aiGamePiece === 'gamepieceX' ? (innerX = true) : (innerO = true);
       return `gameSquare ${state.aiGamePiece}`;
-    } else if (userSelected.includes(id)) {
+    } else if (state.userSelected.includes(id)) {
       state.playerGamePiece === 'gamepieceX'
         ? (innerX = true)
         : (innerO = true);
@@ -37,7 +37,7 @@ export default function GameSquare({
       onPointerDown={(e) => {
         console.log(e);
         if (!game.userTurn) return;
-        gameSquaresFilled.includes(id)
+        state.gameSquaresFilled.includes(id)
           ? console.log('Spot already taken')
           : handleUserSelection(e, e.target.id, e.target.id.charAt(10));
       }}

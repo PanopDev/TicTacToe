@@ -40,8 +40,7 @@ export default function callAI(
       result = [game.remainingSquares[game.remainingSquares.length - 1]];
     }
     return result[0];
-    //harder to win vvvv
-    //result[0] === undefined ? result[0] = 5 : console.log('defined')
+
   }
 
   function AiMedium() {
@@ -67,9 +66,8 @@ export default function callAI(
     //update ai squares selected
     game.aiCanWinUpdate = selection;
     //render states and set AI style class on selected square
-    // setGameSquareFilled((current) => [...current, id]);
     dispatch({type:'gameSquaresFilled',payload:id})
-    // setAiSelected((current) => [...current, selection]);
+   
     dispatch({type:'aiSelected', payload:selection})
     checkForWin(game.aiCanWin)
       ? (game.lose = true)
@@ -79,7 +77,6 @@ export default function callAI(
       handleGameStats()
       if (game.win || game.lose || game.draw) {
         game.gameOver = true;
-        // dispatch({type:'resetGameSquares'})
         console.log(game.gameOver);
       }
   }

@@ -1,13 +1,9 @@
 import React, { useContext } from 'react';
 import MenuLogo from './components/menuLogo';
 import PopupMenu from './components/popupMenu';
-import { useState, useRef } from 'react';
-import { gameSet, myContext } from './Context';
-
+import { useState } from 'react';
 
 export default function Header() {
-  
-
   const [isOpen, setIsOpen] = useState(false);
 
   return (

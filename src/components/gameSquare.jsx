@@ -3,16 +3,9 @@ import GamepieceO from './gamepieceO';
 import GameBrain from '../Context';
 import { useContext } from 'react';
 
-export default function GameSquare({
-  handleUserSelection,
-  id,
-  // aiSelected,
-  // gameSquaresFilled,
-  // userSelected,
-  // gameStats,
-}) {
-
-  const { state,dispatch,gameStats } = useContext(GameBrain);
+export default function GameSquare({ handleUserSelection, id }) {
+  
+  const { state, gameStats } = useContext(GameBrain);
   let game = gameStats.current;
   let innerO = false;
   let innerX = false;

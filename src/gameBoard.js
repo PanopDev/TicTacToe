@@ -1,5 +1,5 @@
-import React, {useContext } from 'react';
-import { useState, useEffect,useRef } from 'react';
+import React, { useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import GameSquare from './components/gameSquare';
 import callAI from './aiLogic';
 import restartGame from './restartGame';
@@ -7,13 +7,9 @@ import Statistics from './components/statistics';
 import Result from './components/result';
 import GameBrain from './Context';
 
-
-
 export default function GameBoard() {
-
-  const {state,gameStats,dispatch} = useContext(GameBrain)
+  const { state, gameStats, dispatch } = useContext(GameBrain);
   const [clientStyle, setClientStyle] = useState({});
-  // const [, updateState] = useState(0);
   const game = gameStats.current;
 
   function checkForWin(canWinArray) {
@@ -36,10 +32,10 @@ export default function GameBoard() {
   function whoGoesFirst() {
     if (state.userGoesFirst) {
       game.userTurn = true;
-     dispatch({type:'updateState'})
+      dispatch({ type: 'updateState' });
     } else if (!state.userGoesFirst) {
       game.userTurn = false;
-      dispatch({type:'updateState'})
+      dispatch({ type: 'updateState' });
       setTimeout(() => {
         callAI(
           state,
@@ -47,8 +43,7 @@ export default function GameBoard() {
           gameStats,
           checkForWin,
           checkForDraw,
-          handleGameStats,
-          
+          handleGameStats
         );
       }, 500);
     }
@@ -56,11 +51,10 @@ export default function GameBoard() {
 
   function handleUserSelection(event, id, gameSquareNum) {
     game.userTurn = false;
-    // setGameSquareFilled((current) => [...current, id]);
-    dispatch({type:'gameSquaresFilled',payload:id})
-    
-    // setUserSelected((current) => [...current, id]);
-    dispatch({type:'userSelected', payload: id})
+
+    dispatch({ type: 'gameSquaresFilled', payload: id });
+
+    dispatch({ type: 'userSelected', payload: id });
     //update remaining squares
     game.selected = gameSquareNum;
     //update user can win status
@@ -73,15 +67,13 @@ export default function GameBoard() {
       : callAI(
           state,
           dispatch,
-          gameStats,        
+          gameStats,
           checkForWin,
           checkForDraw,
-          handleGameStats,
-          
+          handleGameStats
         );
     if (game.win || game.lose || game.draw) {
       game.gameOver = true;
-      // setGameSquareFilled([]);
       console.log(game.gameOver);
     }
     handleGameStats();
@@ -107,13 +99,8 @@ export default function GameBoard() {
         <GameSquare
           id={`gameSquare${i}`}
           key={`gameSquare${i}`}
-          // aiSelected={aiSelected}
-          // gameSquaresFilled={gameSquaresFilled}
-          // userSelected={userSelected}
           handleUserSelection={handleUserSelection}
           gameStats={gameStats}
-          // setGameSquareFilled={setGameSquareFilled}
-        
         />
       );
     }
@@ -125,17 +112,6 @@ export default function GameBoard() {
   }, [state.userGoesFirst]);
 
   const elGameBoard = useRef();
-
-  // window.addEventListener(
-  //   'resize',
-  //   () => {
-  //     console.log(
-  //       'resize',
-  //       setClientStyle(elGameBoard.current.getBoundingClientRect())
-  //     );
-  //   },
-  //   { once: true }
-  // );
 
   useEffect(() => {
     setClientStyle(elGameBoard.current.getBoundingClientRect());
@@ -161,9 +137,7 @@ export default function GameBoard() {
           <Result gameResultlocation={gameResultlocation} text={'Draw!'} />
         )}
       </div>
-      <Statistics
-        restartGame={restartGame}
-      />
+      <Statistics restartGame={restartGame} />
     </>
   );
 }

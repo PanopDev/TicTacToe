@@ -1,10 +1,9 @@
 import { createContext, useReducer, useRef } from 'react';
 
-//create the context variable
-const gameSet = createContext({});
 const GameBrain = createContext({});
 
 //function that contains all the data
+
 function GameBrainData({ children }) {
   //data to use
 
@@ -60,10 +59,10 @@ function GameBrainData({ children }) {
     playerGamePiece: 'gamepieceX',
     aiGamePiece: 'gamepieceO',
     userGoesFirst: false,
-    gameSquaresFilled:[],
-    userSelected:[],
-    aiSelected:[],
-    fakestate:0
+    gameSquaresFilled: [],
+    userSelected: [],
+    aiSelected: [],
+    fakestate: 0,
   };
 
   function reduce(state, action) {
@@ -76,18 +75,30 @@ function GameBrainData({ children }) {
         return { ...state, aiGamePiece: action.payload };
       case 'userGoesFirst':
         return { ...state, userGoesFirst: !state.userGoesFirst };
-
-//new below        
-      case 'gameSquaresFilled':
-       { console.log(state.gameSquaresFilled); return {...state, gameSquaresFilled:[...state.gameSquaresFilled, action.payload]}};
+      case 'gameSquaresFilled': {
+        console.log(state.gameSquaresFilled);
+        return {
+          ...state,
+          gameSquaresFilled: [...state.gameSquaresFilled, action.payload],
+        };
+      }
       case 'userSelected':
-        return {...state,userSelected:[...state.userSelected, action.payload]};
+        return {
+          ...state,
+          userSelected: [...state.userSelected, action.payload],
+        };
       case 'aiSelected':
-        return {...state,aiSelected:[...state.aiSelected,action.payload]};
-     case 'resetGameSquares':
-        {console.log('reset called');return {...state,gameSquaresFilled:[], userSelected:[], aiSelected:[]}}
-        case 'updateState':
-            return{...state,fakestate:state.fakestate + 1}
+        return { ...state, aiSelected: [...state.aiSelected, action.payload] };
+      case 'resetGameSquares': {
+        return {
+          ...state,
+          gameSquaresFilled: [],
+          userSelected: [],
+          aiSelected: [],
+        };
+      }
+      case 'updateState':
+        return { ...state, fakestate: state.fakestate + 1 };
       default:
         return state;
     }
@@ -111,4 +122,4 @@ function GameBrainData({ children }) {
 }
 
 export default GameBrain;
-export { gameSet, GameBrainData };
+export { GameBrainData };

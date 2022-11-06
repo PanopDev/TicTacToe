@@ -3,26 +3,11 @@ import PopMenuButton from './popMenuButton';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
-// import { gameSet} from '../Context';
 import { useContext } from 'react';
 import GameBrain from '../Context';
 
-export default function PopupMenu({
-  isOpen,
-  setIsOpen,
-  
-}) {
-  // const {difficulty,
-  //   setDifficulty,
-  //   gameStats,
-  //   aiGamePiece,
-  //   setAiGamePiece,
-  //   playerGamePiece,
-  //   setPlayerGamePiece,} = useContext(gameSet)
-
-const {reduce,gameSettings,state,dispatch}= useContext(GameBrain)
-
-  // const game = gameStats.current;
+export default function PopupMenu({ isOpen, setIsOpen }) {
+  const { state, dispatch } = useContext(GameBrain);
 
   return (
     <>
@@ -44,18 +29,9 @@ const {reduce,gameSettings,state,dispatch}= useContext(GameBrain)
               description={'Difficulty'}
               settings={
                 <>
-                  <PopMenuButton
-                  
-                    text={'Easy'}
-                  />
-                  <PopMenuButton
-                   
-                    text={'Medium'}
-                  />
-                  <PopMenuButton
-                    
-                    text={'Hard'}
-                  />
+                  <PopMenuButton text={'Easy'} />
+                  <PopMenuButton text={'Medium'} />
+                  <PopMenuButton text={'Hard'} />
                 </>
               }
             />
@@ -66,9 +42,11 @@ const {reduce,gameSettings,state,dispatch}= useContext(GameBrain)
                 <>
                   <div
                     onClick={() => {
-                      dispatch({type:'playerGamePiece', payload:'gamepieceX'})
-                      dispatch({type:'aiGamePiece', payload:'gamepieceO'})
-                    
+                      dispatch({
+                        type: 'playerGamePiece',
+                        payload: 'gamepieceX',
+                      });
+                      dispatch({ type: 'aiGamePiece', payload: 'gamepieceO' });
                     }}
                     style={
                       state.playerGamePiece === 'gamepieceX'
@@ -83,9 +61,11 @@ const {reduce,gameSettings,state,dispatch}= useContext(GameBrain)
 
                   <div
                     onClick={() => {
-                      dispatch({type:'playerGamePiece', payload:'gamepieceO'})
-                      dispatch({type:'aiGamePiece', payload:'gamepieceX'})
-                      
+                      dispatch({
+                        type: 'playerGamePiece',
+                        payload: 'gamepieceO',
+                      });
+                      dispatch({ type: 'aiGamePiece', payload: 'gamepieceX' });
                     }}
                     style={
                       state.playerGamePiece === 'gamepieceO'

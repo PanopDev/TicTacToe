@@ -1,23 +1,15 @@
-// import './App.css';
 import GameBoard from './gameBoard';
-import { useState, useRef} from 'react';
 import Header from './header';
-import { GameBrainData, gameSet } from './Context';
-
+import { GameBrainData } from './Context';
 
 function Game() {
-
-
   return (
-    
-      <div className='game'>
+    <div className='game'>
       <GameBrainData>
         <Header />
         <GameBoard />
-        </GameBrainData>
-      </div>
-      
-    
+      </GameBrainData>
+    </div>
   );
 }
 

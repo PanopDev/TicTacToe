@@ -21,14 +21,8 @@ export default function Header() {
     <div className='Header'>
       <div>
         <MenuLogo isOpen={isOpen} setIsOpen={setIsOpen} />
-        <gameSettings.Provider value={{setDifficulty,difficulty,gameStats,playerGamePiece,setPlayerGamePiece,aiGamePiece,setAiGamePiece}}>
-        <PopupMenu
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          
-        />
-        </gameSettings.Provider>
 
+        <PopupMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <h1>Tic-Tac-Toe</h1>
     </div>

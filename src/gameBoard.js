@@ -172,13 +172,10 @@ export default function GameBoard() {
         )}
       </div>
       <Statistics
-        gameStats={gameStats}
         restartGame={restartGame}
         setGameSquareFilled={setGameSquareFilled}
         setUserSelected={setUserSelected}
         setAiSelected={setAiSelected}
-        userGoesFirst={userGoesFirst}
-        setUserGoesFirst={setUserGoesFirst}
       />
     </>
   );

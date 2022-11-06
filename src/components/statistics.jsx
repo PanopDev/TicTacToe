@@ -1,15 +1,15 @@
+import { useContext } from "react";
+import { gameSettings } from "../Context";
+
 export default function Statistics({
   restartGame,
-  gameStats,
   setGameSquareFilled,
   setUserSelected,
   setAiSelected,
-  setUserGoesFirst,
-  userGoesFirst
 }) {
-  const game = gameStats.current;
 
-
+const {gameStats,userGoesFirst,setUserGoesFirst} = useContext(gameSettings)
+const game = gameStats.current;
 
   return (
     <>

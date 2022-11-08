@@ -56,7 +56,7 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                         : null
                     }
                   >
-                    <GamepieceX solo={true} size={'clamp(30px,20vw,150px)'} />
+                    <GamepieceX solo={true} size={'clamp(30px,20vw,90px)'} />
                   </div>
 
                   <div
@@ -75,7 +75,7 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                         : null
                     }
                   >
-                    <GamepieceO solo={true} size={'clamp(30px,20vw,150px)'} />
+                    <GamepieceO solo={true} size={'clamp(30px,20vw,90px)'} />
                   </div>
                 </>
               }

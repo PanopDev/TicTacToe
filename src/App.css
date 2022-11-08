@@ -14,7 +14,9 @@
 }
 
 body {
-  background-color: rgb(1, 1, 1);;
+  background-color: rgb(1, 1, 1);
+  align-items:center;
+    justify-content: center;
 }
 
 .App {
@@ -26,12 +28,56 @@ body {
 }
 .game {
   background-color: #617c93;
-    min-height: 97vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 80px min(47vh,95vw) 1fr 80px;
-    row-gap: 0.75rem;
-    padding: 0.5rem;
+  min-height: 97vh;
+  display: grid;
+  grid-template-columns: 100%;
+  
+  grid-template-rows: 80px min(52vh,95vw) 1fr 80px;
+  row-gap: 1.25rem;
+  padding: 0.5rem;
+}
+@media screen and (orientation: landscape) {
+  body {
+    background-color: #000000;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .settingLineLeft {
+    justify-content: flex-end;
+  }
+  .App {
+    background-color: rgb(189, 58, 58);
+    width:98vw;
+    min-height:80vh;
+  }
+  .gameBoard {
+    max-height: 100vh;
+    max-width: 100vh;
+    grid-row-start:2;
+    grid-row-end:4;
+  }
+  .game{
+    row-gap: .5rem;
+    column-gap: 1rem;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 70px 1fr
+  
+  }
+  .Header{
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .statisticsBoard.stats{
+height:50px;
+  }
+  .popupMenu.popupMenuOpen {
+
+justify-content: center;
+
+  }
+  
+
 }
 
 .gameBoard {
@@ -286,7 +332,8 @@ h1 {
 
 .popupMenu.popupMenuOpen {
   color: white;
-  width: clamp(300px, 100vw, 700px);
+  /* width: clamp(300px, 100vw, 700px); */
+  width:98vw;
   left: 0px;
   z-index: 1;
   position: absolute;
@@ -319,15 +366,3 @@ h1 {
   width: 66%;
 }
 
-@media screen and (orientation: landscape) {
-  body {
-    background-color: #000000;
-  }
-  .App {
-    background-color: rgb(81, 81, 81);
-  }
-  .gameBoard {
-    max-height: 100vh;
-    max-width: 100vh;
-  }
-}

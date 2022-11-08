@@ -2,9 +2,9 @@ import GameBoard from './gameBoard';
 import Header from './header';
 import { GameBrainData } from './Context';
 
-function Game() {
+function Game({width}) {
   return (
-    <div className='game'>
+    <div style={{maxWidth:width}} className='game'>
       <GameBrainData>
         <Header />
         <GameBoard />

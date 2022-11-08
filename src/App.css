@@ -60,8 +60,9 @@ body {
   .game{
     row-gap: .5rem;
     column-gap: 1rem;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 70px 1fr
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 1fr;
+    justify-items: center;
   
   }
   .Header{
@@ -79,6 +80,14 @@ justify-content: center;
   
 
 }
+
+@media screen and (min-height:500px) and (min-width:500px) and (orientation:landscape)
+{
+  .game{
+
+    grid-template-columns: 2fr 1fr;
+}}
+
 
 .gameBoard {
   display: grid;

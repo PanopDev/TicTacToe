@@ -18,17 +18,20 @@ body {
 }
 
 .App {
-  background-color: rgb(81, 81, 81);
-  width: clamp(320px, 95vw, 700px);
+  background-color: rgb(155, 54, 54);
+  width: clamp(320px, 95vw, 800px);
   min-height: 100vh;
   border: 1px solid rgb(0, 0, 0);
-  padding: 5px;
+  padding: 5px
 }
 .game {
-  min-height: 95vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  background-color: #617c93;
+    min-height: 97vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80px min(47vh,95vw) 1fr 80px;
+    row-gap: 0.75rem;
+    padding: 0.5rem;
 }
 
 .gameBoard {
@@ -37,9 +40,10 @@ body {
   grid-template-rows: repeat(3, 1fr);
   background-color: var(--boardBg);
   color: var(--txtColor);
-  height: clamp(320px, 95vw, 700px);
+  border-radius:10px;
+  /* height: clamp(320px, 95vw, 700px); */
   width: 100%;
-  border: 4px solid rgba(0, 0, 0, 0.697);
+  border: 5px solid rgba(0, 0, 0, 0.697);
   /* z-index: -1; */
   /* gap:.25rem; */
 }
@@ -47,14 +51,14 @@ body {
 .gameSquare {
   background-color: var(--gameSquareBg);
   z-index: 0;
-  border: 5px solid black;
+  border: 1px solid #ffffff30;
   transition: 1.5s;
 }
 
 
 .gameSquare.gamepieceX {
-  background-color: #8af7b0;
-  box-shadow: 0px 1px 20px 23px rgba(0, 0, 0, 0.8) inset;
+  background-color: #93d3ff;
+  box-shadow: 0px 1px 20px 23px rgb(0 0 0 / 42%) inset;
   /* border-radius: 5%; */
   display: flex;
   flex-direction: row;
@@ -65,15 +69,15 @@ body {
 
 
 .gameSquare.gamepieceO {
-  background-color: #73a5e9;
-  box-shadow: 1px 2px 15px 11px rgba(0, 0, 0, 0.577) inset;
-  /* border-radius: 5%; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  /* transition: 2s; */
-  transform-style: preserve-3d;
+  background-color: #92d7ff;
+    box-shadow: 0px 1px 20px 13px rgb(0 0 0) inset;
+    /* border-radius: 5%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* transition: 2s; */
+    transform-style: preserve-3d;
 }
 .ocontainer {
   min-width: 100%;
@@ -135,18 +139,29 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  min-height: 150px;
+  /* min-height: 200px; */
   width: 100%;
-  background-color: rgb(66, 66, 66);
+  background-color: rgba(255, 255, 255, 0.355);
   flex-wrap: wrap;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   /* border-top: 2px solid black;
   border-bottom: 2px solid black; */
-  border: 2px solid black;
-  margin-top: 10px;
-  padding-bottom: 20px;
+  border: 1px solid black;
+  /* margin-top: 10px; */
+  /* padding-bottom: 20px; */
   box-shadow: 1px 1px 10px 1px black;
 }
+
+.statisticsBoard.stats {
+  /* margin-top: 20px; */
+  /* min-height: 100px; */
+  /* border-top: 2px solid black;
+  border-bottom:2px solid black; */
+  border: 1px solid black;
+  box-shadow: 1px 1px 10px 1px black;
+}
+
+
 h2 {
   margin-top: 0px;
 }
@@ -188,24 +203,19 @@ h1 {
   }
 }
 
-.statisticsBoard.stats {
-  margin-top: 20px;
-  min-height: 100px;
-  /* border-top: 2px solid black;
-  border-bottom:2px solid black; */
-  border: 1px solid black;
-  box-shadow: 1px 1px 10px 1px black;
-}
+
 
 .Header {
-  background-color: rgb(110, 110, 110);
+  background-color: rgba(255, 255, 255, 0.43);
   /* flex-direction: column; */
-  min-height: 100px;
+  /* min-height: 100px; */
+ 
+  border: 1px solid rgba(0, 0, 0, 0.76);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   box-shadow: 1px 1px 10px 1px black;
 }
 
@@ -217,12 +227,12 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 2px solid rgba(0, 0, 0, 0.31);
+  border: 2px solid rgba(0, 0, 0, 0.606);
   border-radius: 50%;
   padding: 0.6rem;
   margin: 5px;
-  background-color: rgba(133, 13, 13, 0.233);
-  background-color: rgba(0, 0, 0, 0.233);
+
+  background-color: rgba(0, 0, 0, 0);
   box-shadow: rgba(85, 85, 85, 0.642) 0px 1px 6px 1px;
   transition: 200ms ease-in-out;
 }
@@ -292,6 +302,8 @@ h1 {
   }
   
 }
+
+
 
 .settingLineLeft {
   display: flex;

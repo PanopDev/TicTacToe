@@ -7,8 +7,8 @@ function App() {
   return (
     <div className='App'>
       <Game />
-      <GamepieceX size={'100px'} solo={true} />
-      <GamepieceO size={'100px'} solo={true} />
+      {/* <GamepieceX size={'100px'} solo={true} />
+      <GamepieceO size={'100px'} solo={true} /> */}
     </div>
   );
 }

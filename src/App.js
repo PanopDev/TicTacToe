@@ -1,6 +1,4 @@
 import './App.css';
-import GamepieceX from './components/gamepieceX';
-import GamepieceO from './components/gamepieceO';
 import Game from './game';
 
 function App() {

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+.gameButton{
+
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+width:80%;
+/* font-family: 'Michroma', sans-serif; */
+/* border-radius:10px; */
+border:1px solid rgba(0, 0, 0, 0.527);
+box-shadow:2px 2px 2px 1px rgba(7, 7, 7, 0.548);
+margin:20px;
+font-size:1.5rem;
+font-weight:600;
+transform:skew(0deg, 0deg);
+color:rgba(34, 35, 36, 0.952);
+background:radial-gradient(rgba(236, 235, 235, 0.041) 20%,rgba(199, 200, 201, 0.37) 75%,transparent);
+padding:0px;
+}
+
+.buttonTop{
+    /* position: absolute; */
+    width: 99%;
+    height: 10px;
+    /* border:1px solid black; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(32, 33, 36, 0.281);
+    /* transform: skew(-310deg, 0deg); */
+    box-shadow: -1px 1px 1px 1px #000000b0;
+
+}
+.buttonBottom{
+    /* position: absolute; */
+    width: 99%;
+    height: 10px;
+    /* border:1px solid black; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* transform: skew(310deg, 0deg); */
+    background-color:rgba(32, 33, 36, 0.281);
+    box-shadow: -1px -1px 1px 1px#000000b0;
+    }

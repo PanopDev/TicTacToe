@@ -24,11 +24,4 @@ export default function Statistics({ restartGame }) {
   );
 }
 
-{/* <button
-style={{ height: '50px' }}
-onClick={() => {
-  restartGame(state, dispatch, gameStats);
-}}
->
-RESTART
-</button> */}
+

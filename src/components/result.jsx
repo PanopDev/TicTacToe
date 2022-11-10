@@ -1,4 +1,4 @@
-import './result.css'
+import './styles/result.css'
 
 
 export default function Result({ text,gameResultlocation }) {

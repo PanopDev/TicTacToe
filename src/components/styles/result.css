@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+.gameResult {
+    position: absolute;
+    font-size: 3rem;
+    width: 1px;
+    font-family: 'Permanent Marker', cursive;
+    /* transition: 2s; */
+    animation: gameResult 2s forwards;
+    color: rgba(255, 255, 255, 0.858);
+    text-shadow: 6px 6px 6px rgb(0, 0, 0);
+    /* transform: scale(2.1); */
+  }
+  
+  @keyframes gameResult {
+
+    100% {
+      transform: scale(2.1);
+    }
+  }

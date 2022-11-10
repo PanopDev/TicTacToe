@@ -74,9 +74,7 @@ body {
     grid-column-start: 1;
     grid-column-end: 3;
   }
-  .statisticsBoard.stats {
-    /* height: 50px; */
-  }
+
   .popupMenu.popupMenuOpen {
     justify-content: center;
   }
@@ -232,31 +230,7 @@ h1 {
   justify-content: center;
 }
 
-.gameResult {
-  position: absolute;
-  font-size: 3rem;
-  width: 1px;
-  /* transition: 2s; */
-  animation: fadeIn 4s cubic-bezier(0.6, -0.28, 0.74, 0.05) forwards infinite;
-}
 
-@keyframes fadeIn {
-  0% {
-    color: rgba(255, 255, 255, 0.553);
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  }
-
-  50% {
-    color: white;
-    text-shadow: 6px 6px 6px rgb(0, 0, 0);
-    transform: scale(2.1);
-  }
-
-  100% {
-    color: rgba(255, 255, 255, 0.551);
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  }
-}
 
 .Header {
   /* background-color: rgb(255 255 255 / 0%); */

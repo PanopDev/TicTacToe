@@ -18,5 +18,16 @@
 background-size: 200%,200%;
   -webkit-background-clip: text;
   background-clip: text;
-  transform: skew(-5deg, 0deg);}
+  transform: skew(-5deg, 0deg);
+margin:auto;
+padding-right:75px;
+}
 
+@media screen and (max-width:405px){
+  
+  .bannerText{font-size:1.9rem;};
+}
+@media screen and (max-width:350px){
+  
+  .bannerText{padding-right:0px};
+}

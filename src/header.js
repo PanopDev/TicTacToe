@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <div className='Header'>
-      <div>
+      <div className='headerLeft'>
         <MenuLogo isOpen={isOpen} setIsOpen={setIsOpen} />
         <PopupMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>

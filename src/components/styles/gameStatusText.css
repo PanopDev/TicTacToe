@@ -1,0 +1,22 @@
+.gameStatusText {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-weight: 700;
+  padding: 0.5rem;
+  font-size: 2rem;
+  animation: fadeIn 1s forwards;
+  line-height: 20px;
+  background: linear-gradient(90deg, transparent, #0000005e, transparent);
+  color: #d6e7fd;
+  text-shadow: 2px 1px 3px black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

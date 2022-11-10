@@ -10,7 +10,8 @@ export default function GameStats() {
   return (
     <>
       <div className='statisticsBoard stats'>
-        <div className='stats statisticsBoardstatsTop'>Games Played: {game.Played}
+        <div className='stats statisticsBoardstatsTop'>
+          Games Played: {game.Played}
         <div className='statsDivider' ></div>
         </div>
         <div className='stats statisticsBoardstatsBottom'>

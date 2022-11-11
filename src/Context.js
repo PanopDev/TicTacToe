@@ -58,15 +58,18 @@ function GameBrainData({ children }) {
     difficulty: 'Easy',
     playerGamePiece: 'gamepieceX',
     aiGamePiece: 'gamepieceO',
-    userGoesFirst: false,
+    userGoesFirst: true,
     gameSquaresFilled: [],
     userSelected: [],
     aiSelected: [],
     fakestate: 0,
+    startMenu:true
   };
 
   function reduce(state, action) {
     switch (action.type) {
+      case 'startMenu':
+        return { ...state, startMenu: action.payload};
       case 'difficulty':
         return { ...state, difficulty: action.payload };
       case 'playerGamePiece':
@@ -99,13 +102,14 @@ function GameBrainData({ children }) {
       }
       case 'updateState':
         return { ...state, fakestate: state.fakestate + 1 };
+        
       default:
         return state;
     }
   }
 
   const [state, dispatch] = useReducer(reduce, gameSettings);
-
+ 
   return (
     <GameBrain.Provider
       value={{

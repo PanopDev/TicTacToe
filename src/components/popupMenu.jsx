@@ -1,10 +1,10 @@
 import React from 'react';
-import PopMenuButton from './popMenuButton';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
 import { useContext } from 'react';
 import GameBrain from '../Context';
+import { PopMenuButton, PopMenuCloseButton } from './popMenuButtons';
 
 export default function PopupMenu({ isOpen, setIsOpen }) {
   const { state, dispatch } = useContext(GameBrain);
@@ -14,16 +14,13 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
       <div className={isOpen ? 'popupMenu popupMenuOpen' : 'popupMenu'}>
         {isOpen && (
           <div className='innerTest'>
-            <h1
-              style={{
-                display: 'flex',
-                alignItems: 'flex-end',
-                width: '100%',
-                paddingBottom: '50px',
-              }}
+            <h1 className='gameStatusText settingsHeader'
+             
             >
-              Settings:
+              Game Settings
+             
             </h1>
+            
 
             <Setting
               description={'Difficulty'}
@@ -80,6 +77,7 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                 </>
               }
             />
+            <PopMenuCloseButton isOpen={isOpen} setIsOpen={setIsOpen} text={'Continue'} />
           </div>
         )}
       </div>

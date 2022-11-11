@@ -5,7 +5,7 @@ import { useState } from 'react';
 import BannerText from './components/bannerText';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className='Header'>

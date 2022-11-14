@@ -63,7 +63,9 @@ function GameBrainData({ children }) {
     userSelected: [],
     aiSelected: [],
     fakestate: 0,
-    startMenu:true
+    userWonNumberGame:null,
+    startMenu:true,
+    whoGoesFirstGame:true
   };
 
   function reduce(state, action) {
@@ -77,7 +79,9 @@ function GameBrainData({ children }) {
       case 'aiGamePiece':
         return { ...state, aiGamePiece: action.payload };
       case 'userGoesFirst':
-        return { ...state, userGoesFirst: !state.userGoesFirst };
+        return { ...state, userGoesFirst: action.payload };
+        case 'userWinsStartGame':
+          return{...state, userWonNumberGame:action.payload}
       case 'gameSquaresFilled': {
         console.log(state.gameSquaresFilled);
         return {
@@ -92,6 +96,8 @@ function GameBrainData({ children }) {
         };
       case 'aiSelected':
         return { ...state, aiSelected: [...state.aiSelected, action.payload] };
+      case 'whoGoesFirstGame':
+        return {...state, whoGoesFirstGame: !state.whoGoesFirstGame}
       case 'resetGameSquares': {
         return {
           ...state,

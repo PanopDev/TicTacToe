@@ -4,7 +4,9 @@ import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
 import { useContext } from 'react';
 import GameBrain from '../Context';
+import WhoGoesFirst from './whoGoesFirst';
 import { PopMenuButton, PopMenuCloseButton } from './popMenuButtons';
+
 
 export default function PopupMenu({ isOpen, setIsOpen }) {
   const { state, dispatch } = useContext(GameBrain);
@@ -80,7 +82,9 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
             <PopMenuCloseButton isOpen={isOpen} setIsOpen={setIsOpen} text={'Continue'} />
           </div>
         )}
+        {state.whoGoesFirstGame && (<WhoGoesFirst/>)} 
       </div>
+      
     </>
   );
 }

@@ -1,6 +1,7 @@
 import GameBoard from './gameBoard';
 import Header from './header';
 import { GameBrainData } from './Context';
+import WhoGoesFirst from './components/whoGoesFirst';
 
 function Game({width}) {
   return (

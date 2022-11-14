@@ -1,27 +1,73 @@
+const arr = [1, 2, 3, 4, 5, 6];
+const arr2 = [1];
 
-// function select(){
-//     return Math.random()
-// }
+console.log(arr2.length !== 0);
+let test = arr.length;
+test;
 
-// let myTest = Math.random()
-// let myTest2 = Math.random()
+const random5to10 = Math.floor(Math.random() * 100);
+random5to10;
 
-// let arr = ['hey','whats up','my','name','is','Bob']
+const ternary = 2 + 2 == 5 ? true : false;
 
+ternary;
 
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// let arrstring = arr.toString()
-// let arr2 = arrstring.replace(/,/g,' ')
-// arr2= arr2.replace(/hey/,'Hey,')
-// arr2
+const userNumber = 5;
+const isPlayerCloser = false;
 
-// let obj = {
-// Name: 'Bob',
-// Age: '56',
-// hobbies:['cooking', 'netflix', 'hockey']
+function checkForWinner(userNumber) {
+  const random = (min, max) => Math.floor(Math.random() * (max - min) + 1);
+  const randomAI = random(1, 11);
+  randomAI;
+  const randomAnswer = random(1, 11);
+  randomAnswer;
+  let aiTest = Math.abs(randomAI - randomAnswer);
+  let userTest = Math.abs(userNumber - randomAnswer);
+  return userTest < aiTest;
+}
 
-// }
+console.log(checkForWinner(5));
 
-// let entries = Object.values(obj)
-// let sentries = entries.toString().replace(/,/,':')
-// sentries
+// const randomAI = random(1,11)
+
+// pick a number between one and 10
+// const user = 5
+// //ai pick a number between one and 10 not including user number
+
+// //pick random number
+// console.log(random(1,11))
+
+//compare random number to other selections
+
+const whoGoesFirst = (usernum) => {
+
+  const aiNum = (usernum) => {
+    const selection = random();
+    return selection === usernum ? aiNum(usernum) : selection;
+  };
+
+  const random = () => Math.floor(Math.random() * (11 - 1) + 1);
+
+  const aiNumber = aiNum(usernum);
+  const randomNum = random();
+  const userTest = Math.abs(usernum - random);
+  const aiTest = Math.abs(aiNumber - random);
+  const results = [];
+
+  results.push(userTest < aiTest);
+  results.push(usernum);
+  results.push(aiNumber);
+  results.push(randomNum);
+
+  return results;
+};
+
+const [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(5);
+
+userGoesFirst;
+userChoice;
+AiChoice;
+WinningNumber;
+

@@ -30,7 +30,7 @@ export default function GameBoard() {
   }
 
   function whoGoesFirst() {
-    if (state.userGoesFirst) {
+   if (state.userGoesFirst) {
       game.userTurn = true;
       dispatch({ type: 'updateState' });
     } else if (!state.userGoesFirst) {

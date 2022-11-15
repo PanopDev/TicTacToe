@@ -1,0 +1,14 @@
+.centerFlex{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.centerFlexFullWidth{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    min-width:100%
+    }
+

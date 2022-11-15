@@ -1,4 +1,5 @@
 import './App.css';
+import './components/styles/sporadic.css'
 import Game from './game';
 
 function App() {

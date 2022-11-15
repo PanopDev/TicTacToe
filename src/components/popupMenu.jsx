@@ -82,7 +82,7 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
             <PopMenuCloseButton isOpen={isOpen} setIsOpen={setIsOpen} text={'Continue'} />
           </div>
         )}
-        {state.whoGoesFirstGame && (<WhoGoesFirst/>)} 
+        {state.whoGoesFirstGameOpen && (<WhoGoesFirst/>)} 
       </div>
       
     </>

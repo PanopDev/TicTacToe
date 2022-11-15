@@ -28,11 +28,11 @@ export function PopMenuCloseButton({isOpen,setIsOpen}){
   const { state, dispatch } = useContext(GameBrain);
 
   function handleClick(){
-
+   
   dispatch({type:'startMenu', payload:false})
   setIsOpen(false)
-  // dispatch({type:'startMenu', payload:false})
 if (state.startMenu){
+  console.log(state.userWonNumberGame)
   dispatch({type:'userGoesFirst', payload:state.userWonNumberGame})
 }
   }
@@ -46,10 +46,12 @@ if (state.startMenu){
 
 }
 
-export function WhoGoesFirstButton() {
+export function WhoGoesFirstButton({winner}) {
   const {state,dispatch} = useContext(GameBrain)
 function handleClick(){
-dispatch({type:'whoGoesFirstGame'})
+ 
+dispatch({type:'userWonNumberGame',payload:winner})
+dispatch({type:'whoGoesFirstGameOpen'})
 
 }
 

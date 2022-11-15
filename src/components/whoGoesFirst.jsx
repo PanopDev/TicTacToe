@@ -10,18 +10,15 @@ export default function WhoGoesFirst() {
   const [userNumber, setUserNumber] = useState(0);
   const [aiNumber, setAiNumber] = useState(0);
   const [winningNumber, setWinningNumber] = useState(0);
+  const [winner,setWinner] = useState('wait')
  
   function determineWinner(){
-    // if (winningNumber !== 0){
-
-    // }
-    const userTest = Math.abs(userNumber - winningNumber);console.log(userTest)
-     const aiTest = Math.abs(aiNumber - winningNumber);console.log(aiTest)
+    const userTest = Math.abs(userNumber - winningNumber);console.log('usertest',userTest)
+     const aiTest = Math.abs(aiNumber - winningNumber);console.log('aitest', aiTest)
     const compare =()=> {if (userTest < aiTest){ return true } else if (userTest === aiTest){return userNumber < winningNumber ? true : false} else return false}
-    dispatch({type:'userWonNumberGame',payload:compare()})
-    if(compare()===true){return 'You go First'}
-    else {return 'Ai Goes First'}
-
+   
+    console.log(state.userWonNumberGame)
+    compare() ? setWinner(true) : setWinner(false)
   }
 
   function WhoGoesFirstNumber({ num, id }) {
@@ -63,13 +60,14 @@ function AiNumberSelect(){
 
 
 useEffect(()=>{AiNumberSelect()},[userNumber])
+useEffect(()=>{determineWinner()},[AiNumberSelect])
 
   return (
     <div className='whoGoesFirstContainer'>
       <h1>Who Goes First?</h1>
       <p>
         Pick any number from 1-10.
-        Whoever is closer without going over goes first
+        Whoever is closer goes first
       </p>
       <h2>Your Number</h2>
       <div
@@ -85,8 +83,8 @@ useEffect(()=>{AiNumberSelect()},[userNumber])
       </div>
       {userNumber !== 0 && <h1>AI Number:{aiNumber}</h1>}
       {winningNumber !== 0 && <h1>winning number: {winningNumber}</h1>}
-      {winningNumber !== 0 && <h1>{determineWinner()}</h1>}
-      <WhoGoesFirstButton /> 
+      {winningNumber !== 0 && <h1>{winner}</h1>}
+      <WhoGoesFirstButton winner={winner} /> 
     </div>
   );
 }

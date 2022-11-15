@@ -58,14 +58,14 @@ function GameBrainData({ children }) {
     difficulty: 'Easy',
     playerGamePiece: 'gamepieceX',
     aiGamePiece: 'gamepieceO',
-    userGoesFirst: true,
+    userGoesFirst: 'wait',
     gameSquaresFilled: [],
     userSelected: [],
     aiSelected: [],
     fakestate: 0,
     userWonNumberGame:null,
     startMenu:true,
-    whoGoesFirstGame:true
+    whoGoesFirstGameOpen:true
   };
 
   function reduce(state, action) {
@@ -80,7 +80,7 @@ function GameBrainData({ children }) {
         return { ...state, aiGamePiece: action.payload };
       case 'userGoesFirst':
         return { ...state, userGoesFirst: action.payload };
-        case 'userWinsStartGame':
+        case 'userWonNumberGame':
           return{...state, userWonNumberGame:action.payload}
       case 'gameSquaresFilled': {
         console.log(state.gameSquaresFilled);
@@ -96,8 +96,8 @@ function GameBrainData({ children }) {
         };
       case 'aiSelected':
         return { ...state, aiSelected: [...state.aiSelected, action.payload] };
-      case 'whoGoesFirstGame':
-        return {...state, whoGoesFirstGame: !state.whoGoesFirstGame}
+      case 'whoGoesFirstGameOpen':
+        return {...state, whoGoesFirstGameOpen: !state.whoGoesFirstGameOpen}
       case 'resetGameSquares': {
         return {
           ...state,

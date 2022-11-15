@@ -2,6 +2,7 @@ import React, { useEffect, useState,useContext } from 'react';
 import './styles/whoGoesFirst.css';
 import { WhoGoesFirstButton } from './popMenuButtons';
 import GameBrain from '../Context';
+import Setting from './settingsLine';
 
 export default function WhoGoesFirst() {
 
@@ -27,13 +28,13 @@ export default function WhoGoesFirst() {
         
           if (userNumber === 0) {
             setUserNumber(Number(e.target.textContent));
-            setTimeout(function(){setWinningNumber(randomNumber)},1000)
+            setTimeout(function(){setWinningNumber(randomNumber)},600)
           }
         }
 
     return (
       <div
-        style={userNumber === id ? { backgroundColor: 'gray' } : {}}
+        style={userNumber === id ? { backgroundColor: 'white', color:'black',fontSize:'1.5rem' } : {}}
         className='whoGoesFirstNumber'
         onClick={(e) =>handleClick(e)}
       >
@@ -64,27 +65,38 @@ useEffect(()=>{determineWinner()},[AiNumberSelect])
 
   return (
     <div className='whoGoesFirstContainer'>
-      <h1>Who Goes First?</h1>
-      <p>
-        Pick any number from 1-10.
-        Whoever is closer goes first
-      </p>
-      <h2>Your Number</h2>
+        <div className='numbersGameHeader'>
+        <h1 style={{textDecoration:'underline'}}>Who Goes First?</h1>
+        <span>Pick any number from 1-10.</span>
+        <span>Whoever is closer goes first</span>
+        <span style={{marginBottom:'25px'}}>If its a tie, the lower number wins</span>
+        
+        </div>
+      
+      
+      <Setting description={'Pick Your Number'}/>
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
           flexWrap: 'wrap',
           alignItems: 'center',
-          margin: '25px',
+          marginBottom:'25px',
+          maxWidth:'340px'
         }}
       >
         {divNumbers()}
       </div>
-      {userNumber !== 0 && <h1>AI Number:{aiNumber}</h1>}
-      {winningNumber !== 0 && <h1>winning number: {winningNumber}</h1>}
-      {winningNumber !== 0 && <h1>{winner}</h1>}
-      <WhoGoesFirstButton winner={winner} /> 
+      <Setting description={'AI Number'}/>
+      <div className='startGamenumberContainer'><div className={userNumber === 0 ? 'whoGoesFirstNumber': 'whoGoesFirstNumber singlenumber'  } style={{lineHeight:'20px',margin:'0px',marginBottom:'25px'}}>{userNumber !== 0 && aiNumber}</div></div>
+      <Setting description={'Winning Number'}/>
+      <div className='startGamenumberContainer'><div className={winningNumber === 0  ? 'whoGoesFirstNumber': 'whoGoesFirstNumber singlenumber'} style={{lineHeight:'20px',margin:'0px'}}>{winningNumber !== 0 && winningNumber}</div></div>
+     
+       {/* <h1>AI Number: {userNumber !== 0 && aiNumber}</h1> */}
+      {/* <h1>Winning number: {winningNumber !== 0 && winningNumber}</h1> */}
+      <div style={{minHeight:'100px'}}>{winningNumber !== 0 && winner === true && <h1>{'You go first'}</h1>}
+      {winningNumber !== 0 && winner === false && <h1>{'Ai goes first'}</h1>}</div>
+      {winningNumber!== 0 && <WhoGoesFirstButton winner={winner} /> }
     </div>
   );
 }

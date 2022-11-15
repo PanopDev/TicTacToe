@@ -25,3 +25,25 @@ border-radius: 50%;
 border:1px solid gray;
 margin:5px;
 }
+
+.whoGoesFirstNumber.singlenumber{
+margin:auto;
+background-color: white;
+color:black;
+font-size:1.5rem
+
+}
+
+.startGamenumberContainer{
+   width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.numbersGameHeader{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    margin:0px;
+}

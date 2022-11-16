@@ -6,6 +6,7 @@
   --gameSquareBg: rgb(58, 58, 58);
   --selectedSquareBg1: red;
   --selectedSquareBg2: blue;
+  --mainBgColor:#617c93;
 }
 
 * {
@@ -19,6 +20,7 @@
 body {
   display: flex;
   background-color: rgb(1, 1, 1);
+  margin:0px;
   /* align-items: center; */
   justify-content: center;
 }
@@ -28,22 +30,24 @@ body {
   justify-content: center;
   align-items:center;
   /* background-color: rgb(155, 54, 54); */
-  width: clamp(320px, 97vw, 1000px);
+  width: clamp(320px, 100vw, 150vh);
   min-height: 100vh;
-  border: 1px solid rgb(0, 0, 0);
+  /* border: 1px solid rgb(0, 0, 0); */
   /* padding: 5px; */
 }
 .game {
-  background-color: #617c93;
-  min-height: 97vh;
+  background-color: var(--mainBgColor);
+  min-height: 100vh;
+  /* max-width:150vh; */
   display: grid;
   grid-template-columns: 100%;
   width:100%;
-  grid-template-rows: 80px min(52vh, 95vw) 1fr 100px;
+  grid-template-rows: 80px min(60vh, 95vw) 1fr 100px;
   row-gap: 1.25rem;
   padding: 0.5rem;
   padding-top:0px;
-  border:1px solid gray;
+  box-shadow: 1px 1px 10px 5px black;
+  
   
 
 }
@@ -59,7 +63,7 @@ body {
   /* height: clamp(320px, 95vw, 700px); */
   width: 100%;
   border: 5px solid rgba(0, 0, 0, 0.697);
-  /* z-index: -1; */
+  /* z-index: -1; */                                               
   /* gap:.25rem; */
 }
 
@@ -202,6 +206,7 @@ h1 {
   width: 100%;
   display: grid;
   grid-template-columns:80px 1fr;
+  /* grid-template-rows: 1fr 5px; */
   align-items: center;
 
   /* border-bottom-left-radius:10px;
@@ -294,9 +299,11 @@ margin:auto;
 .popupMenu.popupMenuOpen {
   color: white;
   /* width: clamp(300px, 100vw, 700px); */
-  width: 99vw;
-  left: 0px;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
   min-height:100vh;
+  min-width:100vw;
   z-index: 1;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.911);
@@ -335,6 +342,11 @@ margin:auto;
   margin-bottom: 2rem
 }
 
+.settingLineBottom >div{
+  margin:.75rem;
+  margin-top:0rem;
+  
+}
 
 
 .gameStatusText.settingsHeader{
@@ -355,8 +367,8 @@ line-height:20%;
     justify-content: flex-end;
   }
   .App {
-    background-color: rgb(189, 58, 58);
-    width: 98vw;
+    background-color:#556d81;
+    width: 100vw;
     min-height: 80vh;
   }
   .gameBoard {
@@ -401,11 +413,19 @@ line-height:20%;
 
 @media screen and (min-height: 500px) and (min-width: 500px) and (orientation: landscape) {
   .game {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.2fr 1fr;
+    /* max-width:150vh; */
     row-gap: 1rem;
   }
   .statisticsBoard.stats{
     height: 30vh;
   }
 
+}
+
+@media screen and (min-width:2000px) and (orientation: landscape)
+{
+  .game{
+    max-width: 150vh
+  }
 }

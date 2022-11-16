@@ -1,7 +1,7 @@
 .whoGoesFirstContainer{
 display:grid;
 place-content: center;
-grid-template-rows: 1fr 1fr .5fr .5fr 1fr;
+grid-template-rows: 1fr 1fr .5fr .5fr .75fr;
 position:absolute;
 flex-direction:column;
 width:100%;
@@ -79,8 +79,8 @@ max-width: 340px;
 
 .centerFlexFullWidth > .closeButton{
     background-color:#617c93;
-    /* position:fixed; */
-    width:clamp(150px,100%,500px);
+    position:fixed;
+    width:clamp(150px,75%,350px);
     bottom:0px;
     
     

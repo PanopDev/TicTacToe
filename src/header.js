@@ -3,17 +3,21 @@ import MenuLogo from './components/menuLogo';
 import PopupMenu from './components/popupMenu';
 import { useState } from 'react';
 import BannerText from './components/bannerText';
+import Setting from './components/settingsLine';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
+    
     <div className='Header'>
       <div className='headerLeft'>
         <MenuLogo isOpen={isOpen} setIsOpen={setIsOpen} />
         <PopupMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
      <BannerText text='Tic-Tac-Toe'/>
+     {/* <Setting /> */}
+   
     </div>
   );
 }

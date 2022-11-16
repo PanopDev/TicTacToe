@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext,useRef } from 'react';
 import GameBrain from '../Context';
 import './styles/popMenuButton.css'
 
@@ -12,29 +12,27 @@ export function PopMenuButton({ text }) {
       onClick={() => {
         dispatch({ type: 'difficulty', payload: text });
       }}
-      className={'hey'}
-      style={
-        state.difficulty.includes(text)
-          ? { backgroundColor: 'green', fontSize: '1.3rem' }
-          : { backgroundColor: 'gray', fontSize: '1.3rem' }
-      }
+      className={state.difficulty.includes(text) ? 'difficultyButton selected': 'difficultyButton'}
+
     >
       {text}
     </button>
   );
 }
 
-export function PopMenuCloseButton({isOpen,setIsOpen}){
+export function PopMenuCloseButton({isOpen,setIsOpen,scrollToTop}){
   const { state, dispatch } = useContext(GameBrain);
-
+ 
   function handleClick(){
    
   dispatch({type:'startMenu', payload:false})
+  scrollToTop.current.scrollIntoView()
   setIsOpen(false)
 if (state.startMenu){
   console.log(state.userWonNumberGame)
   dispatch({type:'userGoesFirst', payload:state.userWonNumberGame})
 }
+
   }
 
 
@@ -46,11 +44,12 @@ if (state.startMenu){
 
 }
 
-export function WhoGoesFirstButton({winner}) {
+export function WhoGoesFirstButton({winner,scrollToHeader}) {
   const {state,dispatch} = useContext(GameBrain)
 function handleClick(){
  
 dispatch({type:'userWonNumberGame',payload:winner})
+scrollToHeader.current.scrollIntoView()
 dispatch({type:'whoGoesFirstGameOpen'})
 
 }

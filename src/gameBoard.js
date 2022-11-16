@@ -30,9 +30,11 @@ export default function GameBoard() {
   }
 
   function whoGoesFirst() {
-    if (state.userGoesFirst == 'wait'){console.log('you should return'); return }
-   else if (state.userGoesFirst) {
-    console.log('you didnt return')
+    if (state.userGoesFirst == 'wait') {
+      console.log('you should return');
+      return;
+    } else if (state.userGoesFirst) {
+      console.log('you didnt return');
       game.userTurn = true;
       dispatch({ type: 'updateState' });
     } else if (!state.userGoesFirst) {
@@ -117,7 +119,16 @@ export default function GameBoard() {
 
   useEffect(() => {
     setClientStyle(elGameBoard.current.getBoundingClientRect());
-  }, []);
+  }, [state]);
+
+  // useEffect(() => {
+  //   function resizeHandler() {
+  //     console.log('resize handler');
+  //     setClientStyle(elGameBoard.current.getBoundingClientRect());
+  //   }
+  //   window.addEventListener('resize', resizeHandler);
+  //   return ()=> window.removeEventListener('resize', resizeHandler);
+  // });
 
   const gameResultlocation = {
     top: Number(clientStyle.height / 2) + Number(clientStyle.top) - 68 + 'px',

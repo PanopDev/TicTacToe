@@ -12,6 +12,7 @@ export default function WhoGoesFirst() {
   const [winningNumber, setWinningNumber] = useState(0);
   const [winner, setWinner] = useState('wait');
   const scrollToDiv = useRef()
+  const scrollToHeader = useRef()
 
   function determineWinner() {
     const userTest = Math.abs(userNumber - winningNumber);
@@ -86,11 +87,11 @@ export default function WhoGoesFirst() {
 
   return (
     <div className='whoGoesFirstContainer'>
-      <div className='numbersGameHeader'>
+      <div ref={scrollToHeader} className='numbersGameHeader'>
         <h1 className='gameStatusText settingsHeader'>Who Goes First?</h1>
         <p>
           Pick any number from 1-10.<br></br>
-          Whoever is closer goes first<br></br>
+          The number closest to <br></br>the winning number goes first.<br></br>
           If its a tie, the lower number wins
         </p>
       </div>
@@ -136,10 +137,10 @@ export default function WhoGoesFirst() {
         <div className='centerFlexFullWidth'>
           {winningNumber !== 0 && winner === true && <h1>{'You go first!'}</h1>}
           {winningNumber !== 0 && winner === false && (
-            <h1>{'Ai goes first!'}</h1>
+            <h1>{'AI goes first!'}</h1>
           )}
        
-           {winningNumber !== 0 && <WhoGoesFirstButton winner={winner} />}
+           {winningNumber !== 0 && <WhoGoesFirstButton scrollToHeader={scrollToHeader} winner={winner} />}
         </div>
        
       </div>

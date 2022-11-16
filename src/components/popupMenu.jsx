@@ -2,7 +2,7 @@ import React from 'react';
 import Setting from './settingsLine';
 import GamepieceO from './gamepieceO';
 import GamepieceX from './gamepieceX';
-import { useContext } from 'react';
+import { useContext,useRef } from 'react';
 import GameBrain from '../Context';
 import WhoGoesFirst from './whoGoesFirst';
 import { PopMenuButton, PopMenuCloseButton } from './popMenuButtons';
@@ -10,10 +10,11 @@ import { PopMenuButton, PopMenuCloseButton } from './popMenuButtons';
 
 export default function PopupMenu({ isOpen, setIsOpen }) {
   const { state, dispatch } = useContext(GameBrain);
+  const scrollToTop = useRef()
 
   return (
     <>
-      <div className={isOpen ? 'popupMenu popupMenuOpen' : 'popupMenu'}>
+      <div ref={scrollToTop} className={isOpen ? 'popupMenu popupMenuOpen' : 'popupMenu'}>
         {isOpen && (
           <div className='innerTest'>
             <h1 className='gameStatusText settingsHeader'
@@ -50,7 +51,8 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                     style={
                       state.playerGamePiece === 'gamepieceX'
                         ? {
-                            border: '2px solid white',
+                          border:'1px solid white',
+                          boxShadow:'0px 0px 7px 7px #617c93'
                           }
                         : null
                     }
@@ -69,7 +71,8 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                     style={
                       state.playerGamePiece === 'gamepieceO'
                         ? {
-                            border: '2px solid white',
+                          border:'1px solid white',
+                            boxShadow:'0px 0px 7px 5px #617c93'
                           }
                         : null
                     }
@@ -79,7 +82,7 @@ export default function PopupMenu({ isOpen, setIsOpen }) {
                 </>
               }
             />
-            <PopMenuCloseButton isOpen={isOpen} setIsOpen={setIsOpen} text={'Continue'} />
+            <PopMenuCloseButton scrollToTop={scrollToTop} isOpen={isOpen} setIsOpen={setIsOpen} text={'Continue'} />
           </div>
         )}
         {state.whoGoesFirstGameOpen && (<WhoGoesFirst/>)} 

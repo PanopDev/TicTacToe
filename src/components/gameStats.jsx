@@ -17,7 +17,7 @@ export default function GameStats() {
         <div className='stats statisticsBoardstatsBottom'>
           <div>Won: {game.Won}</div>
           <div> Lost: {game.Lost}</div>
-          <div>Draw:{game.tie}</div>
+          <div>Draw: {game.tie}</div>
         </div>
       </div>
     </>

@@ -51,23 +51,33 @@ const whoGoesFirst = (usernum) => {
   const random = () => Math.floor(Math.random() * (11 - 1) + 1);
 
   const aiNumber = aiNum(usernum);
-  const randomNum = random();
-  const userTest = Math.abs(usernum - random);
-  const aiTest = Math.abs(aiNumber - random);
+  const randomNum = random();console.log(randomNum)
+  const userTest = Math.abs(usernum - randomNum);console.log(userTest)
+  const aiTest = Math.abs(aiNumber - randomNum);console.log(aiTest)
+  const compare =()=> {if (userTest < aiTest){ return true } else if (userTest === aiTest){return usernum < randomNum ? true : false} else return false}
   const results = [];
+  
 
-  results.push(userTest < aiTest);
+  results.push(compare());
   results.push(usernum);
   results.push(aiNumber);
   results.push(randomNum);
-
-  return results;
+    console.log(results)
+  return compare()
 };
 
-const [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(5);
+let [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(1);
 
 userGoesFirst;
 userChoice;
 AiChoice;
 WinningNumber;
 
+[userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(5)
+userGoesFirst;
+userChoice;
+AiChoice;
+WinningNumber;
+
+
+//if the difference is the same between Player and AI, whoevers number is less than the winning number wins.

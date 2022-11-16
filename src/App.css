@@ -12,6 +12,7 @@
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
   font-style:italic;
+
   /* border:1px solid red; */
 }
 
@@ -42,7 +43,9 @@ body {
   row-gap: 1.25rem;
   padding: 0.5rem;
   padding-top:0px;
-  border:1px solid gray
+  border:1px solid gray;
+  
+
 }
 
 
@@ -133,7 +136,7 @@ body {
 
 .innerX {
   width: 10px;
-  height: 75%;
+  height: 85%;
   background-color: rgba(0, 0, 0, 0.724);
   transform: rotateZ(45deg) rotateY(345deg);
   box-shadow: 2px 1px 9px 8px rgb(0 0 0 / 73%),
@@ -167,7 +170,8 @@ padding-left:0px;
   /* box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.144)inset; */
 }
 
-/* .statisticsBoard.stats { */
+.statisticsBoard.stats {
+  letter-spacing: .07rem;
   /* margin-top: 20px; */
   /* min-height: 100px; */
   /* border-top: 2px solid black;
@@ -176,7 +180,7 @@ padding-left:0px;
   /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.336); */
   /* border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px; */
-/* } */
+}
 
 h2 {
   margin:auto;
@@ -267,7 +271,7 @@ margin:auto;
 .innerTest {
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   gap:1rem;
   flex-wrap: wrap;
   width: clamp(300px, 100vw, 700px);
@@ -290,8 +294,9 @@ margin:auto;
 .popupMenu.popupMenuOpen {
   color: white;
   /* width: clamp(300px, 100vw, 700px); */
-  width: 98vw;
+  width: 99vw;
   left: 0px;
+  min-height:100vh;
   z-index: 1;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.911);
@@ -363,7 +368,7 @@ line-height:20%;
   .game {
     row-gap: 0.5rem;
     column-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     grid-template-rows: 70px 1.8fr 1fr;
     justify-items: center;
     row-gap: 1rem;

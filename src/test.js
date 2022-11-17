@@ -66,18 +66,26 @@ const whoGoesFirst = (usernum) => {
   return compare()
 };
 
-let [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(1);
+// let [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(1);
 
-userGoesFirst;
-userChoice;
-AiChoice;
-WinningNumber;
+// userGoesFirst;
+// userChoice;
+// AiChoice;
+// WinningNumber;
 
-[userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(5)
-userGoesFirst;
-userChoice;
-AiChoice;
-WinningNumber;
+// [userGoesFirst, userChoice, AiChoice, WinningNumber] = whoGoesFirst(5)
+// userGoesFirst;
+// userChoice;
+// AiChoice;
+// WinningNumber;
+
+
+const numtest = [ 1, 2, 3, 4, 6, 7, 8, 9]
+const remainingCornerNumbers = []
+
+numtest.forEach((x)=>{if(x % 2 !== 0){remainingCornerNumbers.push(x)}})
+remainingCornerNumbers
+
 
 
 //if the difference is the same between Player and AI, whoevers number is less than the winning number wins.

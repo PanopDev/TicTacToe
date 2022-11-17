@@ -16,9 +16,9 @@ export default function WhoGoesFirst() {
 
   function determineWinner() {
     const userTest = Math.abs(userNumber - winningNumber);
-    console.log('usertest', userTest);
+    // console.log('usertest', userTest);
     const aiTest = Math.abs(aiNumber - winningNumber);
-    console.log('aitest', aiTest);
+    // console.log('aitest', aiTest);
     const compare = () => {
       if (userTest < aiTest) {
         return true;
@@ -27,7 +27,7 @@ export default function WhoGoesFirst() {
       } else return false;
     };
 
-    console.log(state.userWonNumberGame);
+    // console.log(state.userWonNumberGame);
     compare() ? setWinner(true) : setWinner(false);
   }
 
@@ -62,7 +62,7 @@ export default function WhoGoesFirst() {
 
   function AiNumberSelect() {
     let number = Math.floor(Math.random() * (11 - 1) + 1);
-    console.log('ai number select');
+    // console.log('ai number select');
     if (number == userNumber) {
       AiNumberSelect();
     } else {

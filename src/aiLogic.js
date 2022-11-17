@@ -7,6 +7,11 @@ export default function callAI(
   handleGameStats
 ) {
   const game = gameStats.current;
+  const randomRemainingSquare = Math.floor(
+    Math.random() * game.remainingSquares.length
+  );
+  
+
 
   function checkDifficulty() {
     switch (state.difficulty) {
@@ -28,7 +33,8 @@ export default function callAI(
   }
 
   function AiEasy() {
-    console.log('game difficulty', state.difficulty);
+    
+  
     let result = [];
     game.playerCanWin.forEach((x) => {
       if (x.length < 2) {
@@ -36,28 +42,25 @@ export default function callAI(
       }
     });
     if (!game.remainingSquares.includes(result[0])) {
-      result = [game.remainingSquares[game.remainingSquares.length - 1]];
+      result = [game.remainingSquares[randomRemainingSquare]];
     }
     return result[0];
   }
 
   function AiMedium() {
-    console.log('game difficulty', state.difficulty);
-    const randomRemainingSquare = Math.floor(
-      Math.random() * game.remainingSquares.length
-    );
+  
     let result = [];
 
     game.playerCanWin.forEach((x) => {
-      if (x.length < 2) {
+      if (x.length < 2 && game.remainingSquares.includes(x[0])) {
         result = x;
-        console.log('player can win log', x);
+        // console.log('player can win log', x);
       }
     });
     game.aiCanWin.forEach((x) => {
-      if (x.length < 2) {
+      if (x.length < 2 && game.remainingSquares.includes(x[0])) {
         result = x;
-        console.log('AI can win log', x);
+        // console.log('AI can win log', x);
       }
     });
 
@@ -68,14 +71,12 @@ export default function callAI(
     return result[0];
   }
 
-  function aiRidiculous(){
-
-
-  }
+ 
 
   function AiHard() {
-    console.log('game difficulty', state.difficulty);
     
+    const remainingCornerNumbers =[];
+   
     function checkIfPlayerCanWin() {
       playerCanWin.forEach((x) => {
         if (game.remainingSquares.includes(x)) {
@@ -83,10 +84,16 @@ export default function callAI(
         }
       });
     }
-    const randomRemainingSquare = Math.floor(
-      Math.random() * game.remainingSquares.length
-    );
+   
+    game.remainingSquares.forEach((x)=>{if(x % 2 !== 0){remainingCornerNumbers.push(x)}})
+    const randomCornerSquare = Math.floor(Math.random()*remainingCornerNumbers.length)
+
     let result = game.remainingSquares.includes(5) ? 5 : game.remainingSquares[randomRemainingSquare]
+    if (remainingCornerNumbers.length !== 0 && !remainingCornerNumbers.includes(5)){
+      result = remainingCornerNumbers[randomCornerSquare]
+
+    }
+
    
     const playerCanWin = [];
     const aiCanWin = [];
@@ -94,14 +101,14 @@ export default function callAI(
     game.playerCanWin.forEach((x) => {
       if (x.length < 2) {
         playerCanWin.push(x[0]);
-        console.log('player can win log', x);
+        // console.log('player can win log', x);
       }
     });
 
     game.aiCanWin.forEach((x) => {
       if (x.length < 2) {
         aiCanWin.push(x[0]);
-        console.log('AI can win log', x);
+        // console.log('AI can win log', x);
       }
     });
     
@@ -118,11 +125,16 @@ export default function callAI(
     return result;
   }
 
+  function aiRidiculous(){
+
+
+  }
+
   function AiTurn() {
     //check for win/lose options
     let selection = checkDifficulty();
     //log to monitor selection
-    console.log('AI selection', selection);
+    // console.log('AI selection', selection);
     //protection if selection is undefined
     if (selection == undefined) {
       selection = game.remainingSquares[0];
@@ -144,7 +156,7 @@ export default function callAI(
     handleGameStats();
     if (game.win || game.lose || game.draw) {
       game.gameOver = true;
-      console.log(game.gameOver);
+      
     }
   }
 

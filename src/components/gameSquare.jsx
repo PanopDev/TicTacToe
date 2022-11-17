@@ -4,7 +4,6 @@ import GameBrain from '../Context';
 import { useContext } from 'react';
 
 export default function GameSquare({ handleUserSelection, id }) {
-  
   const { state, gameStats } = useContext(GameBrain);
   let game = gameStats.current;
   let innerO = false;
@@ -28,7 +27,6 @@ export default function GameSquare({ handleUserSelection, id }) {
       id={id}
       className={handleClass()}
       onPointerDown={(e) => {
-        console.log(e);
         if (!game.userTurn) return;
         state.gameSquaresFilled.includes(id)
           ? console.log('Spot already taken')

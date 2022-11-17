@@ -29,7 +29,7 @@ export function PopMenuCloseButton({isOpen,setIsOpen,scrollToTop}){
   scrollToTop.current.scrollIntoView()
   setIsOpen(false)
 if (state.startMenu){
-  console.log(state.userWonNumberGame)
+  // console.log(state.userWonNumberGame)
   dispatch({type:'userGoesFirst', payload:state.userWonNumberGame})
 }
 

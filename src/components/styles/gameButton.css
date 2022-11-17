@@ -2,59 +2,50 @@
 
 .gameButton {
   display: flex;
-  
+
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   width: 80%;
-  /* font-family: 'Michroma', sans-serif; */
-  /* border-radius:10px; */
-  /* border: 1px solid rgba(0, 0, 0, 0.527); */
-  /* box-shadow: 2px 2px 2px 1px rgba(7, 7, 7, 0.548); */
-  border:0px;
+  border: 0px;
   margin: 20px;
   font-size: 1.7rem;
   font-weight: 400;
   transform: skew(0deg, 0deg);
   color: rgb(0, 0, 0);
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     rgba(236, 235, 235, 0) 1%,
     rgba(1, 1, 1, 0.084) 20%,
     rgba(160, 212, 243, 0.817) 50%,
     rgba(0, 0, 0, 0) 90%
   );
   padding: 0px;
-  animation:blink 3s infinite;
-
+  animation: blink 3s infinite;
 }
 
 @keyframes blink {
-    0%{
-        color:black;
-    }
-    50%{color:rgba(0, 0, 0, 0)}
-    100%{color:rgb(0, 0, 0)}
+  0% {
+    color: black;
+  }
+  50% {
+    color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    color: rgb(0, 0, 0);
+  }
 }
 
-
 .buttonTop {
-  /* position: absolute; */
   width: 75%;
   height: 10px;
-  /* border:1px solid black; */
-  /* border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
   background-color: rgba(32, 33, 36, 0.281);
   transform: skew(-310deg, 0deg);
   box-shadow: -1px 1px 1px 1px #000000b0;
 }
 .buttonBottom {
-  /* position: absolute; */
   width: 75%;
   height: 10px;
-  /* border:1px solid black; */
-  /* border-top-left-radius: 10px;
-  border-top-right-radius: 10px; */
   transform: skew(310deg, 0deg);
   background-color: rgba(32, 33, 36, 0.281);
   box-shadow: -1px -1px 1px 1px#000000b0;

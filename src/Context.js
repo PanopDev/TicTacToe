@@ -83,7 +83,7 @@ function GameBrainData({ children }) {
         case 'userWonNumberGame':
           return{...state, userWonNumberGame:action.payload}
       case 'gameSquaresFilled': {
-        console.log(state.gameSquaresFilled);
+        // console.log(state.gameSquaresFilled);
         return {
           ...state,
           gameSquaresFilled: [...state.gameSquaresFilled, action.payload],

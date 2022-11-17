@@ -19,7 +19,7 @@
 
 body {
   display: flex;
-  background-color: rgb(1, 1, 1);
+  background-color: var(--mainBgColor);
   margin:0px;
  /* touch-action: pan-y; */
   /* align-items: center; */
@@ -31,7 +31,7 @@ body {
   justify-content: center;
   align-items:center;
   /* background-color: rgb(155, 54, 54); */
-  width: clamp(320px, 99vw, 150vh);
+  width: clamp(320px, 96vw, 150vh);
   min-height: 100vh;
   /* border: 1px solid rgb(0, 0, 0); */
   /* padding: 5px; */
@@ -47,7 +47,7 @@ body {
   row-gap: 1.25rem;
   padding: 0.5rem;
   padding-top:0px;
-  box-shadow: 1px 1px 10px 5px black;
+  /* box-shadow: 1px 1px 10px 5px black; */
   
   
 
@@ -63,7 +63,7 @@ body {
   border-radius: 10px;
   /* height: clamp(320px, 95vw, 700px); */
   width: 100%;
-  border: 5px solid rgba(0, 0, 0, 0.697);
+  border: 4px solid rgba(0, 0, 0, 0.697);
   /* z-index: -1; */                                               
   /* gap:.25rem; */
 }
@@ -280,9 +280,9 @@ margin:auto;
   align-items: center;
   gap:1rem;
   flex-wrap: wrap;
-  width: clamp(300px, 100vw, 700px);
-  background-color: rgba(0, 0, 0, 0);
-  animation: menuContent 1500ms forwards;
+  width: clamp(300px, 96vw, 700px);
+  background-color: rgba(211, 199, 199, 0);
+  animation: menuContent 1200ms forwards;
 }
 
 @keyframes menuContent {
@@ -300,11 +300,11 @@ margin:auto;
 .popupMenu.popupMenuOpen {
   color: white;
   /* width: clamp(300px, 100vw, 700px); */
-  width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
-  min-height:100vh;
-  min-width:100vw;
+  /* width: 100vw; */
+  /* left: 50%; */
+  /* margin-left: -49vw; */
+  min-height:94vh;
+  width:100%;
   z-index: 1;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.911);
@@ -321,7 +321,7 @@ margin:auto;
     box-shadow: rgba(59, 59, 59, 0.363) 0px 0px 10px 5px inset;
   }
   100% {
-    height: clamp(300px, 95vh, 800px);
+    height:min-content;
     box-shadow: rgba(59, 59, 59, 0.363) 0px 100% 10px 5px inset;
   }
 }
@@ -360,16 +360,13 @@ line-height:20%;
 }
 
 @media screen and (orientation: landscape) {
-  body {
-    background-color: #000000;
 
-  }
   .settingLineLeft {
     justify-content: flex-end;
   }
   .App {
     background-color:#556d81;
-    width: 100vw;
+    width: 96vw;
     min-height: 80vh;
   }
   .gameBoard {
@@ -385,6 +382,7 @@ line-height:20%;
     grid-template-rows: 70px 1.8fr 1fr;
     justify-items: center;
     row-gap: 1rem;
+    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.685);
   }
   .Header {
     grid-column-start: 1;
@@ -427,6 +425,7 @@ line-height:20%;
 @media screen and (min-width:2000px) and (orientation: landscape)
 {
   .game{
-    max-width: 150vh
+    max-width: 150vh;
+    box-shadow: 1px 1px 10px 5px black;
   }
 }

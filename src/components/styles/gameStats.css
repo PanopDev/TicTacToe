@@ -23,7 +23,7 @@
 
 .statisticsBoard.stats {
   display: flex;
-
+  letter-spacing: 0.07rem;
   flex-direction: column;
 }
 .stats > * {
@@ -37,7 +37,7 @@
   justify-content: flex-end;
   align-items: center;
 
-  color: rgb(167, 194, 216);
+  color: var(--txtColor3);
   width: 100%;
   background-color: rgba(0, 0, 0, 0.616);
   border-top-left-radius: 10px;
@@ -54,7 +54,7 @@
   background-color: rgba(0, 0, 0, 0.616);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  color: rgb(167, 194, 216);
+  color: var(--txtColor3);
 
   height: 40%;
 }

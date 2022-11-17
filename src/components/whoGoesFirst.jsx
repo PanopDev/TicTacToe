@@ -49,7 +49,7 @@ export default function WhoGoesFirst() {
       <div
         style={
           userNumber === id
-            ? { backgroundColor: 'white', color: 'black', fontSize: '1.5rem' }
+            ? { backgroundColor: 'var(--contrastColor1)', color: 'black', fontSize: '1.5rem' }
             : {}
         }
         className='whoGoesFirstNumber'
@@ -90,9 +90,9 @@ export default function WhoGoesFirst() {
       <div ref={scrollToHeader} className='numbersGameHeader'>
         <h1 className='gameStatusText settingsHeader'>Who Goes First?</h1>
         <p>
-          Pick any number from 1-10.<br></br>
-          The number closest to <br></br>the winning number goes first.<br></br>
-          If its a tie, the lower number wins
+          Pick any number 1-10.<br></br>
+          The number closest to the <br></br>winning number goes first.<br></br>
+          If it is a tie, the lower number wins
         </p>
       </div>
 

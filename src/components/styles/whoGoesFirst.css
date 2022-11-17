@@ -34,7 +34,7 @@
 
 .whoGoesFirstNumber.singlenumber {
   margin: auto;
-  background-color: white;
+  background-color:var(--contrastColor1);
   color: black;
   font-size: 1.5rem;
   line-height: 20px;
@@ -75,7 +75,7 @@
 }
 
 .centerFlexFullWidth > .closeButton {
-  background-color: #617c93;
+  background-color: var(--contrastColor1);
 
   width: clamp(150px, 75%, 350px);
 }

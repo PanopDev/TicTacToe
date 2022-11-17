@@ -1,12 +1,12 @@
 .closeButton {
   width: clamp(200px, 75%, 400px);
   font-size: 1.4rem;
-  color: white;
-  background-color: #617c93;
+  color: var(--txtColor2);
+  background-color: var(--contrastColor1);
   margin: 2rem;
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.444);
-  box-shadow: 1px 1px 9px 3px #617c93;
+  box-shadow: 1px 1px 9px 3px var(--contrastColor1);
   border-radius: 15px;
 }
 
@@ -20,8 +20,8 @@
   border: 1px solid white;
 }
 .difficultyButton.selected {
-  background-color: #617c93;
+  background-color: var(--contrastColor1);
   border: 1px solid white;
-  color: white;
-  box-shadow: 0px 0px 8px 3px #617c93;
+  color: var(--txtColor2);
+  box-shadow: 0px 0px 8px 3px var(--contrastColor1);
 }

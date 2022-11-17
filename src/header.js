@@ -16,6 +16,7 @@ export default function Header() {
         <PopupMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
      <BannerText text='Tic-Tac-Toe'/>
+     <div className='statsDivider' > </div>
      {/* <Setting /> */}
    
     </div>

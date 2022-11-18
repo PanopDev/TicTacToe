@@ -112,6 +112,7 @@ body {
   align-items: center;
   -webkit-transform-style:preserve-3d ;
   transform-style: preserve-3d;
+
 }
 .xcontainer {
   min-width: 100%;
@@ -227,7 +228,7 @@ h1 {
   color: rgba(255, 255, 255, 0);
   width: clamp(300px, 100%, 500px);
   left: 0px;
-  z-index: 1;
+  z-index: 10;
   position: absolute;
   background-color: rgba(0, 0, 0, 0);
   height: 0;
@@ -242,6 +243,7 @@ h1 {
   width: clamp(300px, 96vw, 700px);
   background-color: rgba(211, 199, 199, 0);
   animation: menuContent 1200ms forwards;
+  z-index:10;
 }
 
 @keyframes menuContent {
@@ -264,7 +266,7 @@ h1 {
   /* margin-left: -49vw; */
   min-height: 94vh;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.911);
   display: flex;

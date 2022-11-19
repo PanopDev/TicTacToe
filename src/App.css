@@ -295,13 +295,13 @@ h1 {
   }
   90% {
     height: clamp(550px, 70vh, 700px);
-    box-shadow: rgba(59, 59, 59, 0.363) 0px 0px 10px 5px inset;
+    /* box-shadow: rgba(59, 59, 59, 0.363) 0px 0px 10px 5px inset; */
   }
   100% {
     height: min-content;
-    box-shadow: rgba(59, 59, 59, 0.363) 0px 100% 10px 5px inset;
+    /* box-shadow: rgba(59, 59, 59, 0.363) 0px 100% 10px 5px inset; */
   }
-}
+} 
 
 .settingLineTop {
   display: flex;

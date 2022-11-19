@@ -7,7 +7,7 @@ export default function GamepieceX({ size, solo = false }) {
       {!solo && (
         <div className='xcontainer'>
           <div className='innerX'></div>
-          <div className='innerX innerX2'></div>
+          <div className='innerX2'></div>
         </div>
       )}
 
@@ -19,7 +19,7 @@ export default function GamepieceX({ size, solo = false }) {
         >
           <div className='xcontainer'>
             <div className='innerX'></div>
-            <div className='innerX innerX2'></div>
+            <div className='innerX2'></div>
           </div>
         </div>
       )}

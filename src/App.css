@@ -13,17 +13,18 @@
   --mainBgColor: #30485B;
   --gameBorder:4px solid rgba(0, 0, 0, 0.697);
   --gameSquareBorder:1px solid #ffffff30;
-  --gamePieceOBg:#92d7ff;
-  --gamePieceOShadow:0px 1px 20px 13px rgb(0 0 0) inset;
+  --gamePieceOBg:#74c3fb;
+  --gamePieceOShadow:0px 1px 20px 16px rgb(0 0 0) inset;
   --OinnerShadow1:0px 0px 5px 3px #ffffff, 2px 0px 13px 20px #ffffff5f inset;
   --OinnerShadow2:11px 0px 20px 12px #00000073;
-  --gamePieceXBg:#93d3ff;
-  --gamePieceXShadow:0px 1px 20px 23px rgb(0 0 0 / 42%) inset; 
+  --gamePieceXBg: #74c3fb;
+  --gamePieceXShadow: 0px 0px 20px 20px rgb(48 72 91) inset;
   --XinnerShadow1: 2px 1px 9px 8px rgb(0 0 0 / 73%),
   -5px 4px 7px -1px rgb(255 255 255) inset;
-  --XinnerShadow2:2px 1px 9px 8px rgb(0 0 0),
-  -5px 4px 7px 0px rgb(255 255 255) inset;
-
+  --XinnerShadow2:2px 1px 9px 8px rgb(0 0 0),-5px 4px 7px 0px rgb(255 255 255) inset;
+  --XinnerShadow3:1px 1px 2px 3px #1c242b,-4px 2px 8px 0px rgb(255, 255, 255) inset;
+  
+  
 }
 
 * {
@@ -83,7 +84,7 @@ body {
 
 .gameSquare.gamepieceX {
   background-color: var(--gamePieceXBg);
-  box-shadow:var(--gamePieceXShadow);
+  box-shadow:var(--gamePieceOShadow);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -110,8 +111,8 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  -webkit-transform-style:preserve-3d ;
-  transform-style: preserve-3d;
+  /* -webkit-transform-style:preserve-3d ;
+  transform-style: preserve-3d; */
 
 }
 .xcontainer {
@@ -122,8 +123,8 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  -webkit-transform-style:preserve-3d ;
-  transform-style: preserve-3d;
+  /* -webkit-transform-style:preserve-3d ;
+  transform-style: preserve-3d; */
 }
 .innerO {
   display: flex;
@@ -137,26 +138,41 @@ body {
   box-shadow: var(--OinnerShadow1)
 }
 .innerO2 {
-  width: 75%;
+  width: 85%;
   border-radius: 50%;
   height: 100%;
   background: radial-gradient(rgba(91, 143, 215, 0), #00000000);
   border: 1px solid #000000;
   box-shadow: var(--OinnerShadow2)
+  
 }
 
 .innerX {
-  width: 10px;
+  width: 5px;
   height: 85%;
   background-color: rgba(0, 0, 0, 0.724);
-  -webkit-transform:rotateZ(45deg) rotateY(345deg);
-  transform: rotateZ(45deg) rotateY(345deg);
-  box-shadow: var(--XinnerShadow1)
+   /* -webkit-transform:rotateZ(45deg) rotateY(345deg); */
+  transform: rotate(-45deg); 
+  /* box-shadow: var(--XinnerShadow3); */
+  box-shadow:0px 1px 4px 3px #000000, -3px -1px 3px 0px rgb(242 242 242) inset;
+  border-radius:5px;
+  opacity:.8
 }
-.innerX.innerX2 {
-  -webkit-transform:rotateZ(-45deg) rotateY(15deg);
-  transform: rotateZ(-45deg) rotateY(15deg);
-  box-shadow:var(--XinnerShadow2)
+.innerX2 {
+  /* -webkit-transform:rotateZ(-45deg) rotateY(15deg); */
+  /* transform: rotate(45deg); */
+  /* box-shadow:var(--XinnerShadow2) */
+  width: 5px;
+  height: 85%;
+  opacity:.8;
+  position:absolute;
+  background-color: rgba(0, 0, 0, 0.724);
+   /* -webkit-transform:rotateZ(45deg) rotateY(345deg); */
+  transform: rotate(45deg); 
+  border-radius:5px;
+  /* box-shadow: var(--XinnerShadow3) */
+  box-shadow:0px 0px 4px 3px #000000, -3px 1px 3px 0px rgb(255 255 255) inset
+
 }
 
 /* .statisticsBoard {
